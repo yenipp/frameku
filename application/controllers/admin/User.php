@@ -93,7 +93,7 @@ class User extends CI_Controller
                 'email'         => $i->post('email'),
                 'username'      => $i->post('username'),
                 'password'      => $i->post('password'),
-                'akses_level'   => $i->post('akses_level'),
+                // 'akses_level'   => $i->post('akses_level'),
             );
             $this->user_model->tambah($data);
             $this->session->set_flashdata('sukses', 'Data telah ditambah');
@@ -164,7 +164,7 @@ class User extends CI_Controller
                 'email'         => $i->post('email'),
                 'username'      => $i->post('username'),
                 'password'      => $i->post('password'),
-                'akses_level'   => $i->post('akses_level'),
+                // 'akses_level'   => $i->post('akses_level'),
             );
             $this->user_model->edit($data);
             $this->session->set_flashdata('sukses', 'Data telah diperbarui');

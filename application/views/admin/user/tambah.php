@@ -47,7 +47,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Level Hak Akses</label>
                             <div class="col-lg-6">
                                 <select type="text" class="form-control" name="akses_level">
@@ -55,7 +55,7 @@
                                     <option value="Super Admin"> Super Admin</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label"></label>

@@ -5,7 +5,7 @@
     <div class="container-fluid mt-3">
 
         <p>
-            <a href="<?php echo base_url('admin/user/tambah') ?>" class="btn mb-1 btn-primary">Tambah Baru</a>
+            <a href="<?php echo base_url('admin/kategori/tambah') ?>" class="btn mb-1 btn-primary">Tambah Baru</a>
         </p>
 
         <?php
@@ -29,28 +29,26 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>ID User</th>
+                                    <th>ID Produk</th>
                                     <th>Nama</th>
-                                    <th>Email</th>
-                                    <th>Username</th>
-                                    <!-- <th>Akses Level</th> -->
+                                    <th>Sub Kategori</th>
+                                    <th>Urutan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1;
-                                foreach ($user as $user) { ?>
+                                foreach ($kategori as $kategori) { ?>
                                     <tr>
                                         <td><?php echo $no++ ?></td>
-                                        <td><?php echo $user->id_pengguna ?></td>
-                                        <td><?php echo $user->nama_pengguna ?></td>
-                                        <td><?php echo $user->email ?></td>
-                                        <td><?php echo $user->username ?></td>
-                                        <!-- <td><?php echo $user->akses_level ?></td> -->
+                                        <td><?php echo $kategori->id_kategori ?></td>
+                                        <td><?php echo $kategori->nama_kategori ?></td>
+                                        <td><?php echo $kategori->sub_kategori ?></td>
+                                        <td><?php echo $kategori->urutan ?></td>
                                         <td>
-                                            <a href="<?php echo base_url() . 'admin/user/edit/' . $user->id_pengguna; ?>" class="btn mb-1 btn-secondary">Edit</a>
+                                            <a href="<?php echo base_url() . 'admin/kategori/edit/' . $kategori->id_kategori; ?>" class="btn mb-1 btn-secondary">Edit</a>
 
-                                            <a href="<?php echo base_url() . 'admin/user/delete/' . $user->id_pengguna; ?>" class="btn mb-1 btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                                            <a href="<?php echo base_url() . 'admin/kategori/delete/' . $kategori->id_kategori; ?>" class="btn mb-1 btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
 
                                         </td>
                                     </tr>

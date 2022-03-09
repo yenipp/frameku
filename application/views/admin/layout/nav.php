@@ -9,6 +9,19 @@
                     <!-- <li class="nav-label">Dashboard</li> -->
                     <li><a href="<?php echo base_url('admin/dasbor') ?>">DASHBOARD</a></li>
 
+                    <!-- MENU PRODUK -->
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-user menu-icon"></i><span class="nav-text">PRODUK</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="<?php echo base_url('admin/produk') ?>">Data Produk</a></li>
+                            <li><a href="<?php echo base_url('admin/produk/tambah') ?>">Tambah Produk</a></li>
+                            <li><a href="<?php echo base_url('admin/kategori') ?>">Kategori Produk</a></li>
+                        </ul>
+                    </li>
+                    <!-- AKHIR MENU PRODUK -->
+
                     <!-- MENU USER/PENGGUNA -->
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
