@@ -3,7 +3,7 @@
 
         <?php
         //Error Upload
-        if(isset($error)) {
+        if (isset($error)) {
             echo '<p class="alert alert-warning">';
             echo $error;
             echo '</p>';
@@ -13,7 +13,7 @@
         echo validation_errors('<div class="alert alert-warning">', '</div>');
 
         //Form open
-        echo form_open_multipart(base_url('admin/produk/edit/'. $produk->id_produk), 'class="form-validation"');
+        echo form_open_multipart(base_url('admin/produk/edit/' . $produk->id_produk), 'class="form-validation"');
         ?>
 
         <div class="col-lg-12">
@@ -34,7 +34,7 @@
                             </div>
                         </div>
 
-                         <div class="form-group row">
+                        <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Kode Produk</label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="kode_produk" placeholder="Kode produk" value="<?php echo $produk->kode_produk ?>" required>
@@ -46,12 +46,14 @@
                             <div class="col-lg-6">
                                 <select class="form-control" name="id_kategori">
                                     <?php foreach ($kategori as $kategori) { ?>
-                                    <option value="<?php echo $kategori->id_kategori ?>" >
-                                       <!--  <?php if($produk->id_kategori==$kategori->id_kategori) { echo "selected"; } ?>> -->
-                                        <?php echo $kategori->nama_kategori ?>
-                                    </option>
+                                        <option value="<?php echo $kategori->id_kategori ?>">
+                                            <!--  <?php if ($produk->id_kategori == $kategori->id_kategori) {
+                                                        echo "selected";
+                                                    } ?>> -->
+                                            <?php echo $kategori->nama_kategori ?>
+                                        </option>
                                     <?php } ?>
-                                    
+
                                 </select>
                             </div>
                         </div>
@@ -87,7 +89,7 @@
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Upload Gambar produk</label>
                             <div class="col-lg-8">
-                               <input type="file" class="form-control" name="gambar_produk" placeholder="gambar produk" value="<?php echo $produk->gambar_produk ?>">
+                                <input type="file" class="form-control" name="gambar_produk" placeholder="gambar produk" value="<?php echo $produk->gambar_produk ?>">
                             </div>
                         </div>
 
@@ -96,7 +98,9 @@
                             <div class="col-lg-8">
                                 <select name="status_produk" class="form-control">
                                     <option value="Publish">Publikasikan</option>
-                                    <option value="Draft" <?php if($produk->status_produk=="Draft") { echo "selected"; } ?> >Simpan Sebagai Draft</option> 
+                                    <option value="Draft" <?php if ($produk->status_produk == "Draft") {
+                                                                echo "selected";
+                                                            } ?>>Simpan Sebagai Draft</option>
                                 </select>
                             </div>
                         </div>

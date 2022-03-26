@@ -98,7 +98,7 @@ class Produk_model extends CI_Model
         $this->db->delete('tb_produk', $data);
     }
 
-     //Delete gambar produk
+    //Delete gambar produk
     public function delete_gambar($data)
     {
         $this->db->where('id_gambar', $data['id_gambar']);

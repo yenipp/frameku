@@ -7,17 +7,17 @@
 
                     <!-- MENU DASHBOARD -->
                     <!-- <li class="nav-label">Dashboard</li> -->
-                    <li><a href="<?php echo base_url('admin/dasbor') ?>">DASHBOARD</a></li>
+                    <li><a href="<?php echo base_url('admin/dasbor') ?>"><i class="fa fa-dashboard"></i>DASHBOARD</a></li>
 
                     <!-- MENU PRODUK -->
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-user menu-icon"></i><span class="nav-text">PRODUK</span>
+                            <i class="fa fa-sitemap"></i><span class="nav-text">PRODUK</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="<?php echo base_url('admin/produk') ?>">Data Produk</a></li>
-                            <li><a href="<?php echo base_url('admin/produk/tambah') ?>">Tambah Produk</a></li>
-                            <li><a href="<?php echo base_url('admin/kategori') ?>">Kategori Produk</a></li>
+                            <li><a href="<?php echo base_url('admin/produk') ?>"><i class="fa fa-table"></i>Data Produk</a></li>
+                            <li><a href="<?php echo base_url('admin/produk/tambah') ?>"><i class="fa fa-plus"></i>Tambah Produk</a></li>
+                            <li><a href="<?php echo base_url('admin/kategori') ?>"><i class="fa fa-tags"></i>Kategori Produk</a></li>
                         </ul>
                     </li>
                     <!-- AKHIR MENU PRODUK -->
@@ -25,14 +25,28 @@
                     <!-- MENU USER/PENGGUNA -->
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-user menu-icon"></i><span class="nav-text">ADMIN</span>
+                            <i class="fa fa-lock"></i><span class="nav-text">ADMIN</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="<?php echo base_url('admin/user') ?>">Data ADMIN</a></li>
-                            <li><a href="<?php echo base_url('admin/user/tambah') ?>">Tambah ADMIN</a></li>
+                            <li><a href="<?php echo base_url('admin/user') ?>"><i class="fa fa-table"></i>Data ADMIN</a></li>
+                            <li><a href="<?php echo base_url('admin/user/tambah') ?>"><i class="fa fa-plus"></i>Tambah ADMIN</a></li>
                         </ul>
                     </li>
                     <!-- AKHIR MENU USER/PENGGUNA -->
+
+                    <!-- MENU KONFIGURASI -->
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="fa fa-wrench"></i><span class="nav-text">KONFIGURASI</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="<?php echo base_url('admin/konfigurasi') ?>"><i class="fa fa-home"></i>Konfigurasi Umum</a></li>
+                            <li><a href="<?php echo base_url('admin/konfigurasi/logo') ?>"><i class="fa fa-image"></i>Konfigurasi Logo</a></li>
+                            <li><a href="<?php echo base_url('admin/konfigurasi/icon') ?>"><i class="fa fa-home"></i>Konfigurasi Icon</a></li>
+                        </ul>
+                    </li>
+                    <!-- AKHIR MENU KONFIGURASI -->
+
 
                     <!-- <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
