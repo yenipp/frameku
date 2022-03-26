@@ -26,7 +26,7 @@
         </div>
     </div>
     <!--*******************
-        Preloader end
+        Preloader end yakann
     ********************-->
 
 
