@@ -33,7 +33,7 @@
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>Username</th>
-                                    <!-- <th>Akses Level</th> -->
+                                    <th>Akses Level</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -46,7 +46,7 @@
                                         <td><?php echo $user->nama_pengguna ?></td>
                                         <td><?php echo $user->email ?></td>
                                         <td><?php echo $user->username ?></td>
-                                        <!-- <td><?php echo $user->akses_level ?></td> -->
+                                        <td><?php echo $user->akses_level ?></td>
                                         <td>
                                             <a href="<?php echo base_url() . 'admin/user/edit/' . $user->id_pengguna; ?>" class="btn mb-1 btn-secondary">Edit</a>
 

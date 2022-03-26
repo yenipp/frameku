@@ -1,5 +1,5 @@
 <!--**********************************
-            Nav header start
+           Nav Header start
         ***********************************-->
 <div class="nav-header">
     <div class="brand-logo">
@@ -167,15 +167,17 @@
                 <li class="icons dropdown">
                     <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                         <span class="activity active"></span>
+                        <span class="hidden-xs"><?php echo $this->session->userdata('nama_pengguna'); ?> | <?php echo $this->session->userdata('akses_level'); ?></span>
                         <img src="<?php echo base_url() ?>assets/admin/images/user/1.png" height="40" width="40" alt="">
                     </div>
                     <div class="drop-down dropdown-profile   dropdown-menu">
                         <div class="dropdown-content-body">
                             <ul>
                                 <li>
-                                    <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                    <!-- <span class="hidden-xs"><?php echo $this->session->userdata('nama_pengguna'); ?> | <?php echo $this->session->userdata('akses_level'); ?></span> -->
+                                    <a href="app-profile.html"><i class="icon-user"></i> <span><?php echo $this->session->userdata('nama_pengguna'); ?> - <?php echo $this->session->userdata('akses_level'); ?></span></a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="email-inbox.html"><i class="icon-envelope-open"></i> <span>Inbox</span>
                                         <div class="badge gradient-3 badge-pill badge-primary">3</div>
                                     </a>
@@ -184,8 +186,8 @@
                                 <hr class="my-2">
                                 <li>
                                     <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
-                                </li>
-                                <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                </li> -->
+                                <li><a href="<?php echo base_url('login/logout') ?>"><i class="icon-key"></i> <span>Logout</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -196,4 +198,4 @@
 </div>
 <!--**********************************
             Header end ti-comment-alt
-        ***********************************-->
+        ***********************************

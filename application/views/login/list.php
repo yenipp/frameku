@@ -26,7 +26,7 @@
         </div>
     </div>
     <!--*******************
-        Preloader end yakann
+        Preloader end
     ********************-->
 
 
@@ -41,19 +41,47 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
                                 <a class="text-center" href="index.html">
-                                    <h4><?php echo $title ?></h4>
+                                    <h3><?php echo $title ?></h3>
                                 </a>
 
-                                <form class="mt-5 mb-5 login-input">
+                                <!-- <form class="mt-5 mb-5 login-input"> -->
+                                <form method="post" action="<?= base_url('login');?>">
+                                    <h4 class="text-center">Masukkan username dan password</h4>
+
+<?php
+// Notifikasi error
+echo validation_errors('<div class="alert alert-success">', '</div>');
+
+//Notifikasi gagal login
+if($this->session->flashdata('warning')) {
+    echo '<div class="alert alert-warning">';
+    echo $this->session->flashdata('warning');
+    echo '<div>';
+}
+
+//Notifikasi logout
+if($this->session->flashdata('sukses')) {
+    echo '<div class="alert alert-success">';
+    echo $this->session->flashdata('sukses');
+    echo '<div>';
+}
+
+//Form open login
+echo form_open(base_url('login'), 'class="form-validation"');
+?>
+
+
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email">
+                                        <input type="text" name="username" class="form-control" placeholder="Username">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password">
+                                        <input type="password" name="password" class="form-control" placeholder="Password">
                                     </div>
-                                    <button class="btn login-form__btn submit w-100">Sign In</button>
+                                    <button type="submit" name="submit" class="btn login-form__btn submit w-100">Sign In</button>
+
+<?php echo form_close(); ?>  
                                 </form>
-                                <p class="mt-5 login-form__footer">Dont have account? <a href="page-register.html" class="text-primary">Sign Up</a> now</p>
+                              <!--   <p class="mt-5 login-form__footer">Dont have account? <a href="page-register.html" class="text-primary">Sign Up</a> now</p> -->
                             </div>
                         </div>
                     </div>

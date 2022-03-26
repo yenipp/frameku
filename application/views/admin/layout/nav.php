@@ -25,11 +25,11 @@
                     <!-- MENU USER/PENGGUNA -->
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-user menu-icon"></i><span class="nav-text">PENGGUNA</span>
+                            <i class="icon-user menu-icon"></i><span class="nav-text">ADMIN</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="<?php echo base_url('admin/user') ?>">Data Pengguna</a></li>
-                            <li><a href="<?php echo base_url('admin/user/tambah') ?>">Tambah Pengguna</a></li>
+                            <li><a href="<?php echo base_url('admin/user') ?>">Data ADMIN</a></li>
+                            <li><a href="<?php echo base_url('admin/user/tambah') ?>">Tambah ADMIN</a></li>
                         </ul>
                     </li>
                     <!-- AKHIR MENU USER/PENGGUNA -->
