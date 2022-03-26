@@ -7,6 +7,8 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->model('user_model');
+        //PROTEKSI HALAMAN
+        $this->simple_login->cek_login();
     }
 
     // Data user
@@ -92,8 +94,8 @@ class User extends CI_Controller
                 'nama_pengguna' => $i->post('nama_pengguna'),
                 'email'         => $i->post('email'),
                 'username'      => $i->post('username'),
-                'password'      => $i->post('password'),
-                // 'akses_level'   => $i->post('akses_level'),
+                'password'      => SHA1($i->post('password')),
+                'akses_level'   => $i->post('akses_level'),
             );
             $this->user_model->tambah($data);
             $this->session->set_flashdata('sukses', 'Data telah ditambah');
@@ -163,8 +165,8 @@ class User extends CI_Controller
                 'nama_pengguna' => $i->post('nama_pengguna'),
                 'email'         => $i->post('email'),
                 'username'      => $i->post('username'),
-                'password'      => $i->post('password'),
-                // 'akses_level'   => $i->post('akses_level'),
+                'password'      => SHA1($i->post('password')),
+                'akses_level'   => $i->post('akses_level'),
             );
             $this->user_model->edit($data);
             $this->session->set_flashdata('sukses', 'Data telah diperbarui');
