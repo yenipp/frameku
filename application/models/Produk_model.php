@@ -39,6 +39,28 @@ class Produk_model extends CI_Model
         return $query->result();
     }
 
+    //Listing all produk home
+    public function home()
+    {
+        $this->db->select('tb_produk.*,
+                            tb_pengguna.nama_pengguna,
+                            tb_kategori.nama_kategori,
+                            tb_kategori.sub_kategori,
+                            COUNT(tb_gambar.id_gambar) AS total_gambar');
+        $this->db->from('tb_produk');
+        // JOIN
+        $this->db->join('tb_pengguna', 'tb_pengguna.id_pengguna = tb_produk.id_pengguna', 'left');
+        $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_produk.id_kategori', 'left');
+        $this->db->join('tb_gambar', 'tb_gambar.id_produk = tb_produk.id_produk', 'left');
+        // END JOIN
+        $this->db->where('tb_produk.status_produk', 'Publish');
+        $this->db->group_by('tb_produk.id_produk');
+        $this->db->order_by('id_produk', 'desc');
+        $this->db->limit(12);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     //Detail produk
     public function detail($id_produk)
     {

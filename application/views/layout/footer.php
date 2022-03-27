@@ -1,36 +1,26 @@
+<?php
+//Load data konfigurasi website
+$site              = $this->konfigurasi_model->listing();
+$nav_produk_footer = $this->konfigurasi_model->nav_produk();
+?>
+
 <!-- Footer -->
 <footer class="bg3 p-t-75 p-b-32">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Categories
+                    Kategori Produk
                 </h4>
 
                 <ul>
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Women
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Men
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Shoes
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Watches
-                        </a>
-                    </li>
+                    <?php foreach ($nav_produk_footer as $nav_produk_footer) { ?>
+                        <li class="p-b-10">
+                            <a href="<?php echo base_url('produk/kategori/' . $nav_produk_footer->sub_kategori) ?>" class="stext-107 cl7 hov-cl1 trans-04">
+                                <?php echo $nav_produk_footer->nama_kategori ?>
+                            </a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
 
@@ -68,25 +58,24 @@
 
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    GET IN TOUCH
+                    KONTAK KAMI
                 </h4>
 
                 <p class="stext-107 cl7 size-201">
-                    Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+                    <?php echo nl2br($site->alamat) ?>
+                    <br><i class="fa fa-envelope"></i> <?php echo $site->email ?>
+                    <br><i class="fa fa-phone"></i> <?php echo $site->telepon ?>
                 </p>
 
                 <div class="p-t-27">
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                    <a href="<?php echo $site->facebook ?>" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
                         <i class="fa fa-facebook"></i>
                     </a>
 
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                    <a href="<?php echo $site->instagram ?>" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
                         <i class="fa fa-instagram"></i>
                     </a>
 
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-pinterest-p"></i>
-                    </a>
                 </div>
             </div>
 
