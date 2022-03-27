@@ -1,6 +1,7 @@
 <?php
 // AMBIL DATA MENU DARI KONFIGURASI
-$nav_produk     = $this->konfigurasi_model->nav_produk();
+$nav_produk         = $this->konfigurasi_model->nav_produk();
+$nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
 ?>
 
 <div class="wrap-menu-desktop">
@@ -29,8 +30,6 @@ $nav_produk     = $this->konfigurasi_model->nav_produk();
                             <li><a href="<?php echo base_url('produk/kategori/' . $nav_produk->sub_kategori) ?>">
                                     <?php echo $nav_produk->nama_kategori ?>
                                 </a></li>
-                            <!-- <li><a href="home-02.html">Homepage 2</a></li> -->
-                            <!-- <li><a href="home-03.html">Homepage 3</a></li> -->
                         <?php } ?>
                     </ul>
                 </li>
@@ -53,7 +52,7 @@ $nav_produk     = $this->konfigurasi_model->nav_produk();
                 </li>
 
                 <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="<?php echo base_url('kontak') ?>">Contact</a>
                 </li>
             </ul>
         </div>
@@ -112,45 +111,54 @@ $nav_produk     = $this->konfigurasi_model->nav_produk();
     <ul class="topbar-mobile">
         <li>
             <div class="left-top-bar">
-                Free shipping for standard order over $100
+                <a href="<?php echo $site->facebook ?>" class="topbar-social-item fa fa-facebook"></a>
+                <a href="<?php echo $site->instagram ?>" class="topbar-social-item fa fa-instagram"></a>
             </div>
         </li>
 
         <li>
             <div class="right-top-bar flex-w h-full">
                 <a href="#" class="flex-c-m p-lr-10 trans-04">
-                    Help & FAQs
+                    <?php echo $site->alamat ?>
                 </a>
 
                 <a href="#" class="flex-c-m p-lr-10 trans-04">
-                    My Account
+                    <?php echo $site->email ?>
                 </a>
 
                 <a href="#" class="flex-c-m p-lr-10 trans-04">
-                    EN
+                    <?php echo $site->telepon ?>
                 </a>
 
-                <a href="#" class="flex-c-m p-lr-10 trans-04">
+                <!-- <a href="#" class="flex-c-m p-lr-10 trans-04">
                     USD
-                </a>
+                </a> -->
             </div>
         </li>
     </ul>
 
+    <!-- menu mobile homepage -->
     <ul class="main-menu-m">
         <li>
-            <a href="index.html">Home</a>
+            <a href="<?php echo base_url() ?>">Beranda</a>
+        </li>
+
+        <!-- menu mobile produk -->
+        <li>
+            <a href="<?php base_url('produk') ?>">Produk &amp; Belanja</a>
             <ul class="sub-menu-m">
-                <li><a href="index.html">Homepage 1</a></li>
-                <li><a href="home-02.html">Homepage 2</a></li>
-                <li><a href="home-03.html">Homepage 3</a></li>
+                <?php foreach ($nav_produk_mobile as $nav_produk_mobile) { ?>
+                    <li><a href="<?php echo base_url('produk/kategori/' . $nav_produk_mobile->sub_kategori) ?>">
+                            <?php echo $nav_produk_mobile->nama_kategori ?>
+                        </a></li>
+                <?php } ?>
             </ul>
             <span class="arrow-main-menu-m">
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
             </span>
         </li>
 
-        <li>
+        <!-- <li>
             <a href="product.html">Shop</a>
         </li>
 
@@ -164,10 +172,11 @@ $nav_produk     = $this->konfigurasi_model->nav_produk();
 
         <li>
             <a href="about.html">About</a>
-        </li>
+        </li> -->
 
+        <!-- Menu kontak mobile -->
         <li>
-            <a href="contact.html">Contact</a>
+            <a href="<?php echo base_url('kontak') ?>">Contact</a>
         </li>
     </ul>
 </div>

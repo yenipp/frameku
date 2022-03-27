@@ -34,7 +34,7 @@ class Konfigurasi_model extends CI_Model
         $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_produk.id_kategori', 'left');
         // END JOIN
         $this->db->group_by('tb_produk.id_kategori');
-        $this->db->order_by('id_produk', 'desc');
+        $this->db->order_by('tb_kategori.urutan', 'ASC');
         $query = $this->db->get();
         return $query->result();
     }
