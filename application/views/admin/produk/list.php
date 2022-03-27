@@ -44,7 +44,7 @@
                                     <tr>
                                         <td><?php echo $no++ ?></td>
                                         <td>
-                                            <img src="<?php echo base_url('assets/upload/image/thumbs/' . $produk->gambar_produk) ?>" class="img" width="60">
+                                            <img src="<?php echo base_url('assets/upload/image/' . $produk->gambar_produk) ?>" class="img" width="60">
                                         </td>
                                         <td><?php echo $produk->id_produk ?></td>
                                         <td><?php echo $produk->nama_produk ?></td>
