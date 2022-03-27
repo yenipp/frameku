@@ -268,7 +268,7 @@ class Produk extends CI_Controller
             //Check jika gambar diganti
             if (!empty($_FILES['gambar_produk']['name'])) {
 
-                $config['upload_path']  = './assets/upload/image/';
+                $config['upload_path']  = './assets/upload/image/thumbs';
                 $config['allowed_types']  = 'gif|jpg|png|jpeg';
                 $config['max_size']  = '2400'; //dalam KB
                 $config['max_width']  = '2024';

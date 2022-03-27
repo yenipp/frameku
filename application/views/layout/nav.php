@@ -1,21 +1,39 @@
+<?php
+// AMBIL DATA MENU DARI KONFIGURASI
+$nav_produk     = $this->konfigurasi_model->nav_produk();
+?>
+
 <div class="wrap-menu-desktop">
     <nav class="limiter-menu-desktop container">
 
         <!-- Logo desktop -->
         <a href="#" class="logo">
-            <img src="<?php echo base_url() ?>assets/templat/images/icons/logo-01.png" alt="IMG-LOGO">
+            <img src="<?php echo base_url('assets/upload/image/' . $site->logo) ?>" alt="<?php echo $site->nama_web ?> | <?php echo $site->tagline ?>">
         </a>
 
         <!-- Menu desktop -->
         <div class="menu-desktop">
             <ul class="main-menu">
                 <li class="active-menu">
-                    <a href="index.html">Home</a>
+                    <!-- HOME -->
+                <li>
+                    <a href="<?php echo base_url() ?>">Beranda</a>
+                </li>
+
+                <!-- MENU PRODUK -->
+
+                <li>
+                    <a href="<?php echo base_url('produk') ?>">Produk &amp; Belanja</a>
                     <ul class="sub-menu">
-                        <li><a href="index.html">Homepage 1</a></li>
-                        <li><a href="home-02.html">Homepage 2</a></li>
-                        <li><a href="home-03.html">Homepage 3</a></li>
+                        <?php foreach ($nav_produk as $nav_produk) { ?>
+                            <li><a href="<?php echo base_url('produk/kategori/' . $nav_produk->sub_kategori) ?>">
+                                    <?php echo $nav_produk->nama_kategori ?>
+                                </a></li>
+                            <!-- <li><a href="home-02.html">Homepage 2</a></li> -->
+                            <!-- <li><a href="home-03.html">Homepage 3</a></li> -->
+                        <?php } ?>
                     </ul>
+                </li>
                 </li>
 
                 <li>
