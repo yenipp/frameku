@@ -8,14 +8,20 @@
                 <div class="clearfix"></div>
                 <br><br>
 
+                <?php if ($this->session->flashdata('sukses')) {
+                    echo '<div class="alert alert-warning">';
+                    echo $this->session->flashdata('sukses');
+                    echo '</div>';
+                } ?>
                 <hr>
                 <table class="table-shopping-cart">
                     <tr class="table-head">
                         <th class="column-1">Gambar</th>
                         <th class="column-2">Produk</th>
-                        <th class="column-3">Harga</th>
+                        <th class="column-3" width="20%">Harga</th>
                         <th class="column-4 p-l-70">Jumlah</th>
-                        <th class="column-5">Sub Total</th>
+                        <th class="column-5" width="15%">Sub Total</th>
+                        <th class="column-6" width="20%">Aksi</th>
                     </tr>
 
                     <?php
@@ -24,6 +30,9 @@
                         //Ambil data produk
                         $id_produk = $keranjang['id'];
                         $produk    = $this->produk_model->detail($id_produk);
+
+                        //Form update
+                        echo form_open(base_url('belanja/update_cart/' . $keranjang['rowid']));
                     ?>
 
                         <tr class="table-row">
@@ -33,7 +42,7 @@
                                 </div>
                             </td>
                             <td class="column-2"><?php echo $keranjang['name'] ?></td>
-                            <td class="column-3">Rp <?php echo number_format($keranjang['price'], '0', ',', '.') ?></td>
+                            <td>Rp. <?php echo number_format($keranjang['price'], '0', ',', '.') ?></td>
                             <td class="column-4">
                                 <div class="flex-w bo5 of-hidden w-size17">
                                     <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
@@ -53,9 +62,21 @@
                                 echo number_format($sub_total, '0', ',', '.');
                                 ?>
                             </td>
+                            <td>
+                                <button type="submit" name="update" class="btn btn-success btn-sm">
+                                    <i class="fa fa-edit"> Update</i>
+                                </button>
+
+                                <a href="<?php echo base_url('belanja/hapus/' . $keranjang['rowid']) ?>" class="btn btn-warning btn-sm">
+                                    <i class="fa fa-trash-o"> Hapus</i>
+                                </a>
+                            </td>
                         </tr>
                     <?php
-                    } //End looping keranjang belanja
+                        //Echo form close
+                        echo form_close();
+                        //End looping keranjang belanja
+                    }
                     ?>
 
                     <tr class="table-row">
@@ -63,7 +84,19 @@
                         <td class="column-2">Rp. <?php echo number_format($this->cart->total(), '0', ',', '.') ?> </td>
                     </tr>
 
-                </table>
+                </table><br>
+                <p class="pull-right">
+                    <!-- Button Hapus Belanja-->
+                    <a href="<?php echo base_url('belanja/hapus') ?>">
+                        <i class="fa fa-trash-o"></i> Bersihkan keranjang Belanja
+                    </a>
+                    <a href="<?php echo base_url('belanja/checkout') ?>" class="btn btn-success btn-sm">
+                        <i class="fa fa-shopping-cart"></i> Checkout
+                    </a>
+                    <!-- <a href="<?php echo base_url('belanja/hapus') ?>" class="btn btn-success btn-sm">
+                    <i class="fa fa-trash-o"></i> Bersihkan keranjang Belanja
+                </a> -->
+                </p>
             </div>
         </div>
 
@@ -73,10 +106,7 @@
             </div>
 
             <div class="size10 trans-0-4 m-t-10 m-b-10">
-                <!-- Button -->
-                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-                    Update Cart
-                </button>
+
             </div>
         </div>
 
