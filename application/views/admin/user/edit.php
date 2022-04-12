@@ -41,16 +41,23 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Password</label>
+                            <label class="col-lg-4 col-form-label">Password Lama</label>
                             <div class="col-lg-6">
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $user->password ?>" required>
+                                <input type="password" class="form-control" placeholder="Password Lama" value="<?php echo $user->password ?>" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Password</label>
+                            <label class="col-lg-4 col-form-label">Password Baru</label>
                             <div class="col-lg-6">
-                                <input type="password" class="form-control" name="password2" id="password" placeholder="Ulangi Password" required>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password Baru" value="" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">Ulangi Password Baru</label>
+                            <div class="col-lg-6">
+                                <input type="password" class="form-control" name="password2" id="password" placeholder="Ulangi Password Baru" required>
                             </div>
                         </div>
 

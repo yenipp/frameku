@@ -23,16 +23,6 @@ class Login extends CI_Controller
 			)
 		);
 
-		$this->form_validation->set_rules(
-			'password2',
-			'Password',
-			'required|matches[password]',
-			array(
-				'required' => '%s harus diisi',
-				'matches' => 'Password tidak sama!'
-			)
-		);
-
 		if ($this->form_validation->run()) {
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');

@@ -34,7 +34,7 @@ class User extends CI_Controller
         $valid->set_rules(
             'id_pengguna',
             'Nomor ID Pengguna',
-            'required|min_length[1]|max_length[11]|is_unique[tb_pengguna.id_pengguna]',
+            'required|min_length[1]|max_length[4]|is_unique[tb_pengguna.id_pengguna]',
             array(
                 'required' => '%s harus diisi',
                 'min_length' => '%s minimal 1 karakter',
@@ -63,7 +63,7 @@ class User extends CI_Controller
         $valid->set_rules(
             'username',
             'Username',
-            'required|min_length[6]|max_length[32]|is_unique[tb_pengguna.username]',
+            'required|min_length[6]|max_length[20]|is_unique[tb_pengguna.username]',
             array(
                 'required' => '%s harus diisi',
                 'min_length' => '%s minimal 6 karakter',

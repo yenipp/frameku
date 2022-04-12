@@ -77,9 +77,7 @@
                                     <div class="form-group">
                                         <input type="password" id="password" name="password" class="form-control" placeholder="Password">
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" id="password2" name="password2" class="form-control" placeholder="Ulangi Password">
-                                    </div>
+
                                     <button type="submit" name="submit" class="btn login-form__btn submit w-100">Login</button>
 
                                     <?php echo form_close(); ?>
