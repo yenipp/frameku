@@ -76,7 +76,19 @@ class User extends CI_Controller
             'password',
             'Password',
             'required',
-            array('required' => '%s harus diisi')
+            array(
+                'required' => '%s harus diisi'
+            )
+        );
+
+        $valid->set_rules(
+            'password2',
+            'Password',
+            'required|matches[password]',
+            array(
+                'required' => '%s harus diisi',
+                'matches' => 'Password tidak sama!'
+            )
         );
 
         if ($valid->run() === FALSE) {
@@ -147,6 +159,16 @@ class User extends CI_Controller
             'Password',
             'required',
             array('required' => '%s harus diisi')
+        );
+
+        $valid->set_rules(
+            'password2',
+            'Password',
+            'required|matches[password]',
+            array(
+                'required' => '%s harus diisi',
+                'matches' => 'Password tidak sama!'
+            )
         );
 
         if ($valid->run() === FALSE) {

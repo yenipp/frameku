@@ -5,7 +5,7 @@
     <div class="container-fluid mt-3">
 
         <p>
-            <a href="<?php echo base_url('admin/produk/tambah') ?>" class="btn mb-1 btn-primary">Tambah Baru</a>
+            <a href="<?php echo base_url('admin/produk/tambah') ?>" class="btn mb-1 btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
         </p>
 
         <?php

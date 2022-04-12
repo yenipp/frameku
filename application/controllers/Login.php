@@ -3,33 +3,52 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Login extends CI_Controller
 {
-    // Halaman login
-    public function index()
-    {
-    	//validasi
-    	$this->form_validation->set_rules('username', 'Username', 'required',
-    			array('required' => '%s harus diisi'));
+	// Halaman login
+	public function index()
+	{
+		//validasi
+		$this->form_validation->set_rules(
+			'username',
+			'Username',
+			'required',
+			array('required' => '%s harus diisi')
+		);
 
-    	$this->form_validation->set_rules('password', 'Password', 'required',
-    			array('required' => '%s harus diisi'));
+		$this->form_validation->set_rules(
+			'password',
+			'Password',
+			'required',
+			array(
+				'required' => '%s harus diisi'
+			)
+		);
 
-    	if($this->form_validation->run())
-    	{
-    		$username = $this->input->post('username');
-    		$password = $this->input->post('password');
+		$this->form_validation->set_rules(
+			'password2',
+			'Password',
+			'required|matches[password]',
+			array(
+				'required' => '%s harus diisi',
+				'matches' => 'Password tidak sama!'
+			)
+		);
+
+		if ($this->form_validation->run()) {
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
 			// proses ke simple login
 			$this->simple_login->login($username, $password);
-    	}
-    	//End validasi
+		}
+		//End validasi
 
-        $data = array('title' => 'Login Admin');
-        $this->load->view('login/list', $data, FALSE);
-    }
+		$data = array('title' => 'Login Admin');
+		$this->load->view('login/list', $data, FALSE);
+	}
 
-    //Fungsi logout
-    public function logout()
-    {
-    	//Ambil fungsi logout dari simple_login
-    	$this->simple_login->logout();
-    }
+	//Fungsi logout
+	public function logout()
+	{
+		//Ambil fungsi logout dari simple_login
+		$this->simple_login->logout();
+	}
 }

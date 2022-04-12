@@ -1,31 +1,27 @@
 	<!-- Header -->
-	<header>
+	<header class="header1">
 		<!-- Header desktop -->
-		<div class="container-menu-desktop">
-			<!-- Topbar -->
-			<div class="top-bar">
-				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">
-						<a href="<?php echo $site->facebook ?>" class="topbar-social-item fa fa-facebook"></a>
-						<a href="<?php echo $site->instagram ?>" class="topbar-social-item fa fa-instagram"></a>
-					</div>
+		<div class="container-menu-header">
+			<div class="topbar">
+				<div class="topbar-social">
+					<a href="<?php echo $site->facebook ?>" class="topbar-social-item fa fa-facebook"></a>
+					<a href="<?php echo $site->instagram ?>" class="topbar-social-item fa fa-instagram"></a>
+				</div>
 
-					<div class="right-top-bar flex-w h-full">
-						<!-- <a href="#" class="flex-c-m trans-04 p-lr-25">
-							<?php echo $site->alamat ?>
-						</a> -->
+				<span class="topbar-child1">
+					<?php echo $site->alamat ?>
+				</span>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							<?php echo $site->alamat ?>
-						</a>
+				<div class="topbar-child2">
+					<span class="topbar-email">
+						<?php echo $site->email ?>
+					</span>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							<?php echo $site->email ?>
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							<?php echo $site->telepon ?>
-						</a>
+					<div class="topbar-language rs1-select2">
+						<select class="selection-1" name="time">
+							<option><?php echo $site->telepon ?></option>
+							<option><?php echo $site->email ?></option>
+						</select>
 					</div>
 				</div>
 			</div>

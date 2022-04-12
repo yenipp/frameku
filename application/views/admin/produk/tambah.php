@@ -3,7 +3,7 @@
 
         <?php
         //Error Upload
-        if(isset($error)) {
+        if (isset($error)) {
             echo '<p class="alert alert-warning">';
             echo $error;
             echo '</p>';
@@ -14,6 +14,8 @@
 
         //Form open
         echo form_open_multipart(base_url('admin/produk/tambah'), 'class="form-validation"');
+
+        // echo date('d-m-Y')
         ?>
 
         <div class="col-lg-12">
@@ -23,7 +25,7 @@
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Nomor ID Produk</label>
                             <div class="col-lg-6">
-                                <input type="number" class="form-control" name="id_produk" placeholder="Nomor ID produk" value="<?php echo set_value('id_produk') ?>" required>
+                                <input type="number" class="form-control" name="id_produk" placeholder="ID produk" value="<?php echo set_value('id_produk') ?>">
                             </div>
                         </div>
 
@@ -34,7 +36,7 @@
                             </div>
                         </div>
 
-                         <div class="form-group row">
+                        <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Kode Produk</label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="kode_produk" placeholder="Kode produk" value="<?php echo set_value('kode_produk') ?>" required>
@@ -46,9 +48,9 @@
                             <div class="col-lg-6">
                                 <select class="form-control" name="id_kategori">
                                     <?php foreach ($kategori as $kategori) { ?>
-                                    <option value="<?php echo $kategori->id_kategori ?>">
-                                        <?php echo $kategori->nama_kategori ?>
-                                    </option>
+                                        <option value="<?php echo $kategori->id_kategori ?>">
+                                            <?php echo $kategori->nama_kategori ?>
+                                        </option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -85,7 +87,7 @@
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Upload Gambar produk</label>
                             <div class="col-lg-8">
-                               <input type="file" class="form-control" name="gambar_produk" placeholder="gambar produk" value="<?php echo set_value('gambar_produk') ?>"required>
+                                <input type="file" class="form-control" name="gambar_produk" placeholder="gambar produk" value="<?php echo set_value('gambar_produk') ?>" required>
                             </div>
                         </div>
 
@@ -94,7 +96,7 @@
                             <div class="col-lg-8">
                                 <select name="status_produk" class="form-control">
                                     <option value="Publish">Publikasikan</option>
-                                    <option value="Draft">Simpan Sebagai Draft</option> 
+                                    <option value="Draft">Simpan Sebagai Draft</option>
                                 </select>
                             </div>
                         </div>
@@ -102,8 +104,8 @@
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label"></label>
                             <div class="col-lg-6">
-                                <button name="submit" type="submit" class="btn mb-1 btn-info">Simpan</button>
-                                <button name="reset" type="reset" class="btn mb-1 btn-secondary">Reset</button>
+                                <button name="submit" type="submit" class="btn mb-1 btn-success"><i class="fa fa-save"></i> Simpan</button>
+                                <button name="reset" type="reset" class="btn mb-1 btn-info"><i class="fa fa-times"></i> Reset</button>
                             </div>
                         </div>
 

@@ -43,7 +43,14 @@
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Password</label>
                             <div class="col-lg-6">
-                                <input type="password" class="form-control" name="password" placeholder="Password" value="<?php echo $user->password ?>" required>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $user->password ?>" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">Password</label>
+                            <div class="col-lg-6">
+                                <input type="password" class="form-control" name="password2" id="password" placeholder="Ulangi Password" required>
                             </div>
                         </div>
 
@@ -62,8 +69,8 @@
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label"></label>
                             <div class="col-lg-6">
-                                <button name="submit" type="submit" class="btn mb-1 btn-info">Simpan</button>
-                                <button name="reset" type="reset" class="btn mb-1 btn-secondary">Reset</button>
+                                <button name="submit" type="submit" class="btn mb-1 btn-success"><i class="fa fa-save"></i> Simpan</button>
+                                <button name="reset" type="reset" class="btn mb-1 btn-info"><i class="fa fa-times"></i> Reset</button>
                             </div>
                         </div>
 

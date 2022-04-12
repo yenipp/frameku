@@ -5,7 +5,7 @@
     <div class="container-fluid mt-3">
 
         <p>
-            <a href="<?php echo base_url('admin/kategori/tambah') ?>" class="btn mb-1 btn-primary">Tambah Baru</a>
+            <a href="<?php echo base_url('admin/kategori/tambah') ?>" class="btn mb-1 btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
         </p>
 
         <?php
@@ -46,9 +46,9 @@
                                         <td><?php echo $kategori->sub_kategori ?></td>
                                         <td><?php echo $kategori->urutan ?></td>
                                         <td>
-                                            <a href="<?php echo base_url() . 'admin/kategori/edit/' . $kategori->id_kategori; ?>" class="btn mb-1 btn-secondary">Edit</a>
+                                            <a href="<?php echo base_url() . 'admin/kategori/edit/' . $kategori->id_kategori; ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a>
 
-                                            <a href="<?php echo base_url() . 'admin/kategori/delete/' . $kategori->id_kategori; ?>" class="btn mb-1 btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                                            <a href="<?php echo base_url() . 'admin/kategori/delete/' . $kategori->id_kategori; ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
 
                                         </td>
                                     </tr>

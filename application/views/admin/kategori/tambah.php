@@ -16,7 +16,7 @@
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Nomor Kategori</label>
                             <div class="col-lg-6">
-                                <input type="number" class="form-control" name="id_kategori" placeholder="Nomor kategori" value="<?php echo set_value('id_kategori') ?>" required>
+                                <input type="number" class="form-control" name="id_kategori" placeholder="Nomor kategori" value="<?= $id_kategori ?>" required>
                             </div>
                         </div>
 
@@ -37,8 +37,8 @@
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label"></label>
                             <div class="col-lg-6">
-                                <button name="submit" type="submit" class="btn mb-1 btn-info">Simpan</button>
-                                <button name="reset" type="reset" class="btn mb-1 btn-secondary">Reset</button>
+                                <button name="submit" type="submit" class="btn mb-1 btn-success"><i class="fa fa-save"></i> Simpan</button>
+                                <button name="reset" type="reset" class="btn mb-1 btn-info"><i class="fa fa-times"></i> Reset</button>
                             </div>
                         </div>
 

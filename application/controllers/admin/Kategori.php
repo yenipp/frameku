@@ -22,6 +22,11 @@ class Kategori extends CI_Controller
         $this->load->view('admin/layout/wrapper', $data, FALSE);
     }
 
+    // //AUTO PLISSSS
+    // function get_invoice()
+    // {
+    //     echo $this->kategori_model->get_invoice();
+    // }
 
     // Tambah kategori
     public function tambah()

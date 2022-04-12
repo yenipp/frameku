@@ -45,43 +45,46 @@
                                 </a>
 
                                 <!-- <form class="mt-5 mb-5 login-input"> -->
-                                <form method="post" action="<?= base_url('login');?>">
+                                <form method="post" action="<?= base_url('login'); ?>">
                                     <h4 class="text-center">Masukkan username dan password</h4>
 
-<?php
-// Notifikasi error
-echo validation_errors('<div class="alert alert-success">', '</div>');
+                                    <?php
+                                    // Notifikasi error
+                                    echo validation_errors('<div class="alert alert-success">', '</div>');
 
-//Notifikasi gagal login
-if($this->session->flashdata('warning')) {
-    echo '<div class="alert alert-warning">';
-    echo $this->session->flashdata('warning');
-    echo '<div>';
-}
+                                    //Notifikasi gagal login
+                                    if ($this->session->flashdata('warning')) {
+                                        echo '<div class="alert alert-warning">';
+                                        echo $this->session->flashdata('warning');
+                                        echo '<div>';
+                                    }
 
-//Notifikasi logout
-if($this->session->flashdata('sukses')) {
-    echo '<div class="alert alert-success">';
-    echo $this->session->flashdata('sukses');
-    echo '<div>';
-}
+                                    //Notifikasi logout
+                                    if ($this->session->flashdata('sukses')) {
+                                        echo '<div class="alert alert-success">';
+                                        echo $this->session->flashdata('sukses');
+                                        echo '<div>';
+                                    }
 
-//Form open login
-echo form_open(base_url('login'), 'class="form-validation"');
-?>
+                                    //Form open login
+                                    echo form_open(base_url('login'), 'class="form-validation"');
+                                    ?>
 
 
                                     <div class="form-group">
                                         <input type="text" name="username" class="form-control" placeholder="Username">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" class="form-control" placeholder="Password">
+                                        <input type="password" id="password" name="password" class="form-control" placeholder="Password">
                                     </div>
-                                    <button type="submit" name="submit" class="btn login-form__btn submit w-100">Sign In</button>
+                                    <div class="form-group">
+                                        <input type="password" id="password2" name="password2" class="form-control" placeholder="Ulangi Password">
+                                    </div>
+                                    <button type="submit" name="submit" class="btn login-form__btn submit w-100">Login</button>
 
-<?php echo form_close(); ?>  
+                                    <?php echo form_close(); ?>
                                 </form>
-                              <!--   <p class="mt-5 login-form__footer">Dont have account? <a href="page-register.html" class="text-primary">Sign Up</a> now</p> -->
+                                <!--   <p class="mt-5 login-form__footer">Dont have account? <a href="page-register.html" class="text-primary">Sign Up</a> now</p> -->
                             </div>
                         </div>
                     </div>

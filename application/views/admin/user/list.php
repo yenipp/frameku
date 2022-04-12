@@ -5,7 +5,7 @@
     <div class="container-fluid mt-3">
 
         <p>
-            <a href="<?php echo base_url('admin/user/tambah') ?>" class="btn mb-1 btn-primary">Tambah Baru</a>
+            <a href="<?php echo base_url('admin/user/tambah') ?>" class="btn mb-1 btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
         </p>
 
         <?php
@@ -48,9 +48,9 @@
                                         <td><?php echo $user->username ?></td>
                                         <td><?php echo $user->akses_level ?></td>
                                         <td>
-                                            <a href="<?php echo base_url() . 'admin/user/edit/' . $user->id_pengguna; ?>" class="btn mb-1 btn-secondary">Edit</a>
+                                            <a href="<?php echo base_url() . 'admin/user/edit/' . $user->id_pengguna; ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a>
 
-                                            <a href="<?php echo base_url() . 'admin/user/delete/' . $user->id_pengguna; ?>" class="btn mb-1 btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                                            <a href="<?php echo base_url() . 'admin/user/delete/' . $user->id_pengguna; ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"> Hapus</a>
 
                                         </td>
                                     </tr>
