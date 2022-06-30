@@ -14,7 +14,7 @@ class Produk extends CI_Controller
     //Listing data produk
     public function index()
     {
-        $site             = $this->konfigurasi_model->listing();
+        // $site             = $this->konfigurasi_model->listing();
         $listing_kategori = $this->produk_model->listing_kategori();
         //Ambil data total produk
         $total              = $this->produk_model->total_produk();
@@ -46,14 +46,13 @@ class Produk extends CI_Controller
         $config['first_url']        = base_url() . '/produk/';
 
         $this->pagination->initialize($config);
-        //AMbil data produk
+        //Ambil data produk
         $page = ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) *  $config['per_page'] : 0;
         $produk = $this->produk_model->produk($config['per_page'], $page);
         //Pagination end
 
         $data = array(
-            'title'             => 'Produk' . $site->nama_web,
-            'site'              => $site,
+            'title'             => 'Produk Optik Wijaya Kusuma',
             'listing_kategori'  => $listing_kategori,
             'produk'            => $produk,
             'pagin'             => $this->pagination->create_links(),
@@ -64,23 +63,23 @@ class Produk extends CI_Controller
     }
 
     //Listing data kategori produk
-    public function kategori($sub_kategori)
+    public function kategori($slug_kategori)
     {
         //Kategori detail
-        $kategori          = $this->kategori_model->read($sub_kategori);
+        $kategori          = $this->kategori_model->read($slug_kategori);
         $id_kategori       = $kategori->id_kategori;
         //Data global
-        $site              = $this->konfigurasi_model->listing();
+        // $site              = $this->konfigurasi_model->listing();
         $listing_kategori  = $this->produk_model->listing_kategori();
         //Ambil data total produk
         $total             = $this->produk_model->total_kategori($id_kategori);
         //Pagination start
         $this->load->library('pagination');
 
-        $config['base_url']         = base_url() . 'produk/kategori/' . $sub_kategori . '/index/';
+        $config['base_url']         = base_url() . 'produk/kategori/' . $slug_kategori . '/index/';
         $config['total_rows']       = $total->total;
         $config['use_page_numbers'] = TRUE;
-        $config['per_page']         = 1;
+        $config['per_page']         = 3;
         $config['uri_segment']      = 5;
         $config['num_links']        = 5;
         $config['full_tag_open']    = '<ul class="pagination">';
@@ -99,7 +98,7 @@ class Produk extends CI_Controller
         $config['prev_tag_close']   = '</div>';
         $config['cur_tag_open']     = '<b>';
         $config['cur_tag_close']    = '</b>';
-        $config['first_url']        = base_url() . '/produk/kategori/' . $sub_kategori;
+        $config['first_url']        = base_url() . '/produk/kategori/' . $slug_kategori;
 
         $this->pagination->initialize($config);
         //AMbil data produk
@@ -109,7 +108,6 @@ class Produk extends CI_Controller
 
         $data = array(
             'title'             => $kategori->nama_kategori,
-            'site'              => $site,
             'listing_kategori'  => $listing_kategori,
             'produk'            => $produk,
             'pagin'             => $this->pagination->create_links(),
@@ -120,17 +118,16 @@ class Produk extends CI_Controller
     }
 
     //Detail produk
-    public function detail($sub_produk)
+    public function detail($slug_produk)
     {
-        $site           = $this->konfigurasi_model->listing();
-        $produk         = $this->produk_model->read($sub_produk);
+        // $site           = $this->konfigurasi_model->listing();
+        $produk         = $this->produk_model->read($slug_produk);
         $id_produk      = $produk->id_produk;
         $gambar         = $this->produk_model->gambar($id_produk);
         $produk_related = $this->produk_model->home();
 
         $data = array(
             'title'             => $produk->nama_produk,
-            'site'              => $site,
             'produk'            => $produk,
             'produk_related'    => $produk_related,
             'gambar'            => $gambar,

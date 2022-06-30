@@ -9,6 +9,8 @@ class User extends CI_Controller
         $this->load->model('user_model');
         //PROTEKSI HALAMAN
         $this->simple_login->cek_login();
+        //load helper random string
+        $this->load->helper('string');
     }
 
     // Data user
@@ -22,6 +24,76 @@ class User extends CI_Controller
             'isi' => 'admin/user/list'
         );
         $this->load->view('admin/layout/wrapper', $data, FALSE);
+    }
+
+    //Profil Pengguna
+    public function detail_pengguna()
+    {
+        //Ambil dari login id_pengguna dari session
+        $id_pengguna = $this->session->userdata('id_pengguna');
+        $user    = $this->user_model->detail_pengguna($id_pengguna);
+
+        //Validasi input
+        $valid = $this->form_validation;
+
+        $valid->set_rules(
+            'nama_pengguna',
+            'Nama lengkap',
+            'required',
+            array('required' => '%s harus diisi')
+        );
+
+        $valid->set_rules(
+            'email',
+            'Email',
+            'required',
+            array('required' => '%s harus diisi')
+        );
+
+        $valid->set_rules(
+            'username',
+            'Username',
+            'required',
+            array('required' => '%s harus diisi')
+        );
+
+        if ($valid->run() === FALSE) {
+            //End validasi
+
+            $data = array(
+                'title'       => 'Profil saya',
+                'user'        => $user,
+                'isi'         => 'admin/user/detail_pengguna'
+            );
+            $this->load->view('admin/layout/wrapper', $data, FALSE);
+
+            //Masuk database
+        } else {
+            $i = $this->input;
+            //Kalau password lebih dari 6 karakter, maka password diganti
+            if (strlen($i->post('password')) >= 6) {
+                $data = array(
+                    'id_pengguna'      => $id_pengguna,
+                    'nama_pengguna'    => $i->post('nama_pengguna'),
+                    'password'          => SHA1($i->post('password')),
+                    'email'           => $i->post('email'),
+                    'username'            => $i->post('username'),
+                );
+            } else {
+                //Kalau password < 6 maka password tidak diganti
+                $data = array(
+                    'id_pengguna'      => $id_pengguna,
+                    'nama_pengguna'    => $i->post('nama_pengguna'),
+                    'email'           => $i->post('email'),
+                    'username'            => $i->post('username'),
+                );
+            }
+            //End data update
+            $this->user_model->edit($data);
+            $this->session->set_flashdata('sukses', 'Profil berhasil diperbarui');
+            redirect(base_url('admin/user/detail_pengguna'), 'refresh');
+        }
+        //End masuk database
     }
 
 
@@ -120,7 +192,7 @@ class User extends CI_Controller
     // Edit user
     public function edit($id_pengguna)
     {
-        $user = $this->user_model->detail($id_pengguna);
+        $user = $this->user_model->detail_pengguna($id_pengguna);
 
         //Validasi input
         $valid = $this->form_validation;

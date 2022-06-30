@@ -7,6 +7,7 @@ class Kategori extends CI_Controller
     {
         parent::__construct();
         $this->load->model('kategori_model');
+        $this->load->helper('string');
     }
 
     // Data kategori
@@ -66,11 +67,11 @@ class Kategori extends CI_Controller
             //Masuk database
         } else {
             $i            = $this->input;
-            $sub_kategori = url_title($this->input->post('nama_kategori'), 'dash', TRUE);
+            $slug_kategori = url_title($this->input->post('nama_kategori'), 'dash', TRUE);
 
             $data = array(
                 'id_kategori'   => $i->post('id_kategori'),
-                'sub_kategori'  => $sub_kategori,
+                'slug_kategori'  => $slug_kategori,
                 'nama_kategori' => $i->post('nama_kategori'),
                 'urutan'        => $i->post('urutan'),
             );
@@ -108,11 +109,11 @@ class Kategori extends CI_Controller
             //Masuk database
         } else {
             $i            = $this->input;
-            $sub_kategori = url_title($this->input->post('nama_kategori'), 'dash', TRUE);
+            $slug_kategori = url_title($this->input->post('nama_kategori'), 'dash', TRUE);
 
             $data = array(
                 'id_kategori'   => $id_kategori,
-                'sub_kategori'  => $sub_kategori,
+                'slug_kategori'  => $slug_kategori,
                 'nama_kategori' => $i->post('nama_kategori'),
                 'urutan'        => $i->post('urutan'),
             );
@@ -123,7 +124,7 @@ class Kategori extends CI_Controller
         //End masuk database
     }
 
-    //Delete User
+    //Delete Kategori
     public function delete($id_kategori)
     {
         $where = array(

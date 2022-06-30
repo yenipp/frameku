@@ -17,17 +17,46 @@ class Home extends CI_Controller
     // Halaman utama Website-Homepage
     public function index()
     {
-        $site       = $this->konfigurasi_model->listing();
+        // $site       = $this->konfigurasi_model->listing();
         $kategori   = $this->konfigurasi_model->nav_produk();
         $produk     = $this->produk_model->home();
         $data = array(
-            'title'     => $site->nama_web . '|' . $site->tagline,
-            'keyword'   => $site->keyword,
-            'deskripsi' => $site->deskripsi,
-            'site'      => $site,
+            'title'     => 'Wijaya Kusuma | Optik',
+            'deskripsi' => 'Optik Wijaya Kusuma menyediakan berbagai macam kacamata',
             'kategori'  => $kategori,
             'produk'    => $produk,
             'isi'       => 'home/list'
+        );
+        $this->load->view('layout/wrapper', $data, FALSE);
+    }
+
+
+    public function berita()
+    {
+        // $site       = $this->konfigurasi_model->listing();
+        $kategori   = $this->konfigurasi_model->nav_produk();
+        $produk     = $this->produk_model->home();
+        $data = array(
+            'title'     => 'Wijaya Kusuma | Optik',
+            'deskripsi' => 'Optik Wijaya Kusuma menyediakan berbagai macam kacamata',
+            'kategori'  => $kategori,
+            'produk'    => $produk,
+            'isi'       => 'home/berita'
+        );
+        $this->load->view('layout/wrapper', $data, FALSE);
+    }
+
+    public function kontak()
+    {
+        // $site       = $this->konfigurasi_model->listing();
+        $kategori   = $this->konfigurasi_model->nav_produk();
+        $produk     = $this->produk_model->home();
+        $data = array(
+            'title'     => 'Wijaya Kusuma | Optik',
+            'deskripsi' => 'Optik Wijaya Kusuma menyediakan berbagai macam kacamata',
+            'kategori'  => $kategori,
+            'produk'    => $produk,
+            'isi'       => 'home/kontak'
         );
         $this->load->view('layout/wrapper', $data, FALSE);
     }
