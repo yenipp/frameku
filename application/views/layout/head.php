@@ -1,6 +1,6 @@
 <?php
 //Loading konfigurasi website
-$site   = $this->konfigurasi_model->listing();
+// $site   = $this->konfigurasi_model->listing();
 ?>
 
 <!DOCTYPE html>
@@ -14,11 +14,10 @@ $site   = $this->konfigurasi_model->listing();
 
     <!-- ICON DIAMBIL DARI KONFIGURASI WEBSITE -->
     <!-- <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/templat/images/icons/favicon.png" /> -->
-    <link rel="icon" type="image/png" href="<?php echo base_url('assets/upload/image/' . $site->icon) ?>" />
+    <link rel="icon" type="image/png" href="<?php echo base_url('assets/upload/image/mata.png') ?>" />
 
     <!-- SEO Google -->
-    <meta name="keyword" content="<?php echo $site->keyword ?>">
-    <meta name="deskripsi" content="<?php echo $title ?>, <?php echo $site->deskripsi ?>">
+    <meta name="deskripsi" content="<?php echo $title ?>, Optik Wijaya Kusuma menyediakan berbagai macam kacamata">
     <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/templat/images/icons/favicon.png" />
 
     <!--===============================================================================================-->
@@ -48,6 +47,8 @@ $site   = $this->konfigurasi_model->listing();
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/templat/css/util.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/templat/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+
     <!--===============================================================================================-->
     <style type="text/css" media="screen">
         ul.pagination {

@@ -1,6 +1,6 @@
 <?php
 //Load data konfigurasi website
-$site              = $this->konfigurasi_model->listing();
+// $site              = $this->konfigurasi_model->listing();
 $nav_produk_footer = $this->konfigurasi_model->nav_produk();
 ?>
 
@@ -14,14 +14,14 @@ $nav_produk_footer = $this->konfigurasi_model->nav_produk();
 
             <div>
                 <p class="s-text7 w-size27">
-                    <?php echo nl2br($site->alamat) ?>
-                    <br><i class="fa fa-envelope"></i> <?php echo $site->email ?>
-                    <br><i class="fa fa-phone"></i> <?php echo $site->telepon ?>
+                    Jl. Raya Kasianto, Goranggareng, Kawedanan, Magetan
+                    <br><i class="fa fa-envelope"></i> optikwijaya@gmail.com
+                    <br><i class="fa fa-phone"></i> 085779842345
                 </p>
 
                 <div class="flex-m p-t-30">
-                    <a href="<?php echo $site->facebook ?>" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
-                    <a href="<?php echo $site->instagram ?>" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+                    <a href="" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+                    <a href="" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@ $nav_produk_footer = $this->konfigurasi_model->nav_produk();
             <ul>
                 <?php foreach ($nav_produk_footer as $nav_produk_footer) { ?>
                     <li class="p-b-9">
-                        <a href="<?php echo base_url('produk/kategori/' . $nav_produk_footer->sub_kategori) ?>" class="s-text7">
+                        <a href="<?php echo base_url('produk/kategori/' . $nav_produk_footer->slug_kategori) ?>" class="s-text7">
                             <?php echo $nav_produk_footer->nama_kategori ?>
                         </a>
                     </li>
@@ -165,6 +165,12 @@ $nav_produk_footer = $this->konfigurasi_model->nav_produk();
         dropdownParent: $('#dropDownSelect1')
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha512-NqYds8su6jivy1/WLoW8x1tZMRD7/1ZfhWG/jcRQLOzV1k1rIODCpMgoBnar5QXshKJGV7vi0LXLNXPoFsM5Zg==" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $('.form-select').niceSelect();
+    })
+</script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="<?php echo base_url() ?>assets/templat/vendor/slick/slick.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>assets/templat/js/slick-custom.js"></script>
@@ -175,12 +181,12 @@ $nav_produk_footer = $this->konfigurasi_model->nav_produk();
 <!--===============================================================================================-->
 <script type="text/javascript" src="<?php echo base_url() ?>assets/templat/vendor/sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript">
-    $('.block2-btn-addcart').each(function() {
-        var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-        $(this).on('click', function() {
-            swal(nameProduct, "is added to cart !", "success");
-        });
-    });
+    // $('.block2-btn-addcart').each(function() {
+    //     var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+    //     $(this).on('click', function() {
+    //         swal(nameProduct, "is added to cart !", "success");
+    //     });
+    // });
 
     $('.block2-btn-addwishlist').each(function() {
         var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();

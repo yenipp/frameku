@@ -6,8 +6,8 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
 
 <div class="wrap_header">
     <!-- Logo -->
-    <a href="index.html" class="logo">
-        <img src="<?php echo base_url('assets/upload/image/' . $site->logo) ?>" alt="<?php echo $site->nama_web ?> | <?php echo $site->tagline ?>">
+    <a href="<?php echo base_url() ?>" class="logo">
+        <img src="<?= base_url('assets/upload/image/mata.png') ?>"> Optik Wijaya Kusuma
     </a>
 
     <!-- Menu -->
@@ -22,10 +22,10 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
 
                 <!-- MENU PRODUK -->
                 <li>
-                    <a href="<?php echo base_url('produk') ?>">Produk &amp; Belanja</a>
+                    <a href="<?php echo base_url('produk') ?>">Produk &amp; Kategori</a>
                     <ul class="sub_menu">
                         <?php foreach ($nav_produk as $nav_produk) { ?>
-                            <li><a href="<?php echo base_url('produk/kategori/' . $nav_produk->sub_kategori) ?>">
+                            <li><a href="<?php echo base_url('produk/kategori/' . $nav_produk->slug_kategori) ?>">
                                     <?php echo $nav_produk->nama_kategori ?>
                                 </a></li>
                         <?php } ?>
@@ -34,7 +34,12 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
 
 
                 <li>
-                    <a href="<?php echo base_url('kontak') ?>">Contact</a>
+                    <a href="<?php echo base_url('home/kontak') ?>">Contact</a>
+                </li>
+
+                <li>
+                    <!-- <a href="<?php echo base_url('camera') ?>">Coba Frame</a> -->
+                    <a href="<?php echo base_url('camera') ?>" target="_blank">Coba Frame</a>
                 </li>
             </ul>
         </nav>
@@ -42,9 +47,26 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
 
     <!-- Header Icon -->
     <div class="header-icons">
-        <a href="#" class="header-wrapicon1 dis-block">
-            <img src="<?php echo base_url() ?>assets/templat/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-        </a>
+
+        <?php if ($this->session->userdata('email')) { ?>
+
+            <a href="<?php echo base_url('dasbor') ?>" class="header-wrapicon1 dis-block">
+                <img src="<?php echo base_url('assets/upload/iconuser.png') ?>" class="header-icon1" alt="ICON">
+                <?php echo $this->session->userdata('nama_pelanggan'); ?>&nbsp; &nbsp;
+            </a>
+
+            <a href="<?php echo base_url('masuk/logout') ?>" class="header-wrapicon1 dis-block">
+                <img src="<?php echo base_url('assets/upload/iconlogout.png') ?>" class="header-icon1" alt="ICON">
+                Logout
+            </a>
+
+        <?php } else { ?>
+
+            <a href="<?php echo base_url('registrasi') ?>" class="header-wrapicon1 dis-block">
+                <img src="<?php echo base_url() ?>assets/templat/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+            </a>
+
+        <?php } ?>
 
         <span class="linedivide1"></span>
 
@@ -55,8 +77,8 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
             $keranjang      = $this->cart->contents();
             ?>
 
-            <img src="<?php echo base_url() ?>assets/templat/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-            <span class="header-icons-noti"><?php echo count($keranjang) ?></span>
+            <img src="<?php echo base_url('assets/upload/image/iconwishlist.png') ?>" class="header-icon1 js-show-header-dropdown" alt="ICON">
+            <!-- <span class="header-icons-noti"><?php echo count($keranjang) ?></span> -->
 
             <!-- Header cart noti -->
             <div class="header-cart header-dropdown">
@@ -67,7 +89,7 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
                     if (empty($keranjang)) {
                     ?>
                         <li class="header-cart-item">
-                            <p class="alert alert-success">Keranjang Belanja Kosong</p>
+                            <p class="alert alert-success">Tidak ada produk favorit</p>
                         </li>
                         <?php
                         //Kalau ada 
@@ -83,17 +105,21 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
 
                             <li class="header-cart-item">
                                 <div class="header-cart-item-img">
-                                    <img src="<?php echo base_url('assets/upload/image/thumbs/' . $produknya->gambar_produk) ?>" alt="<?php echo $keranjang['name'] ?>">
+                                    <img src="<?php echo base_url('assets/upload/frame/' . $produknya->gambar_produk) ?>" alt="<?php echo $keranjang['name'] ?>">
                                 </div>
 
                                 <div class="header-cart-item-txt">
-                                    <a href="<?php echo base_url('produk/detail/' . $produknya->sub_produk) ?>" class="header-cart-item-name">
+                                    <a href="<?php echo base_url('produk/detail/' . $produknya->slug_produk) ?>" class="header-cart-item-name">
                                         <?php echo $keranjang['name'] ?>
                                     </a>
 
-                                    <span class="header-cart-item-info">
+                                    <a class="header-cart-item-info">
+                                        <?php echo number_format($keranjang['price'], '0', ',', '.') ?>
+                                    </a>
+
+                                    <!-- <span class="header-cart-item-info">
                                         <?php echo $keranjang['qty'] ?> x Rp. <?php echo number_format($keranjang['price'], '0', ',', '.') ?> : Rp. <?php echo number_format($keranjang['subtotal'], '0', ',', '.') ?>
-                                    </span>
+                                    </span> -->
                                 </div>
                             </li>
                     <?php
@@ -102,26 +128,26 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
                     ?>
                 </ul>
 
-                <div class="header-cart-total">
+                <!-- <div class="header-cart-total">
                     Total: <?php if (!empty($keranjang)) {
                                 echo $total_belanja;
                             } ?>
-                </div>
+                </div> -->
 
                 <div class="header-cart-buttons">
-                    <div class="header-cart-wrapbtn">
-                        <!-- Button -->
-                        <a href="<?php echo base_url('belanja') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                            View Cart
-                        </a>
-                    </div>
+                    <!-- <div class="header-cart-wrapbtn"> -->
+                    <!-- Button -->
+                    <a href="<?php echo base_url('dasbor/belanja') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                        <b>Lihat daftar favorit</b>
+                    </a>
+                    <!-- </div> -->
 
-                    <div class="header-cart-wrapbtn">
-                        <!-- Button -->
+                    <!-- <div class="header-cart-wrapbtn">
+                        Button
                         <a href="<?php echo base_url('belanja/checkout') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                             Check Out
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -132,17 +158,33 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
 <!-- Header Mobile -->
 <div class="wrap_header_mobile">
     <!-- Logo moblie -->
-    <a href="index.html" class="logo-mobile">
-        <img src="<?php echo base_url() ?>assets/templat/images/icons/logo.png" alt="IMG-LOGO">
+    <a href="<?php echo base_url() ?>" class="logo-mobile">
+        <img src="<?= base_url('assets/upload/image/mata.png') ?>"> Optik Wijaya Kusuma
     </a>
 
     <!-- Button show menu -->
     <div class="btn-show-menu">
         <!-- Header Icon mobile -->
         <div class="header-icons-mobile">
-            <a href="#" class="header-wrapicon1 dis-block">
-                <img src="<?php echo base_url() ?>assets/templat/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-            </a>
+            <?php if ($this->session->userdata('email')) { ?>
+
+                <a href="<?php echo base_url('dasbor') ?>" class="header-wrapicon1 dis-block">
+                    <img src="<?php echo base_url('assets/upload/image/iconuser.png') ?>" class="header-icon1" alt="ICON">
+                    <?php echo $this->session->userdata('nama_pelanggan'); ?>&nbsp; &nbsp;
+                </a>
+
+                <a href="<?php echo base_url('masuk/logout') ?>" class="header-wrapicon1 dis-block">
+                    <img src="<?php echo base_url('assets/upload/image/iconlogout.png') ?>" class="header-icon1" alt="ICON">
+                    Logout
+                </a>
+
+            <?php } else { ?>
+
+                <a href="<?php echo base_url('registrasi') ?>" class="header-wrapicon1 dis-block">
+                    <img src="<?php echo base_url() ?>assets/templat/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                </a>
+
+            <?php } ?>
 
             <span class="linedivide2"></span>
 
@@ -151,7 +193,7 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
                 //Check data belanjaan ada atau tidak
                 $keranjang_mobile      = $this->cart->contents();
                 ?>
-                <img src="<?php echo base_url() ?>assets/templat/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                <img src="<?php echo base_url('assets/upload/image/iconwishlist.png') ?>" class="header-icon1 js-show-header-dropdown" alt="ICON">
                 <span class="header-icons-noti"><?php echo count($keranjang_mobile) ?></span>
 
                 <!-- Header cart noti -->
@@ -163,7 +205,7 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
                         if (empty($keranjang_mobile)) {
                         ?>
                             <li class="header-cart-item">
-                                <p class="alert alert-success">Keranjang Belanja Kosong</p>
+                                <p class="alert alert-success">Tidak ada produk favorit</p>
                             </li>
                             <?php
                             //Kalau ada 
@@ -178,7 +220,7 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
 
                                 <li class="header-cart-item">
                                     <div class="header-cart-item-img">
-                                        <img src="<?php echo base_url('assets/upload/image/thumbs/' . $produk_mobile->gambar_produk) ?>" alt="<?php echo $keranjang_mobile['name'] ?>">
+                                        <img src="<?php echo base_url('assets/upload/frame/' . $produk_mobile->gambar_produk) ?>" alt="<?php echo $keranjang_mobile['name'] ?>">
                                     </div>
 
                                     <div class="header-cart-item-txt">
@@ -186,9 +228,9 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
                                             <?php echo $keranjang_mobile['name'] ?>
                                         </a>
 
-                                        <span class="header-cart-item-info">
-                                            <?php echo $keranjang_mobile['qty'] ?> x Rp. <?php echo number_format($keranjang_mobile['price'], '0', ',', '.') ?> : Rp. <?php echo number_format($keranjang_mobile['subtotal'], '0', ',', '.') ?>
-                                        </span>
+                                        <a class="header-cart-item-info">
+                                            <?php echo number_format($keranjang_mobile['price'], '0', ',', '.') ?>
+                                        </a>
                                     </div>
                                 </li>
 
@@ -197,24 +239,26 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
                         ?>
                     </ul>
 
-                    <div class="header-cart-total">
-                        Total: <?php echo $total_belanja ?>
-                    </div>
+                    <!-- <div class="header-cart-total">
+                        Total: <?php if (!empty($keranjang)) {
+                                    echo $total_belanja;
+                                } ?>
+                    </div> -->
 
                     <div class="header-cart-buttons">
-                        <div class="header-cart-wrapbtn">
-                            <!-- Button -->
-                            <a href="<?php echo base_url('belanja') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                View Cart
-                            </a>
-                        </div>
+                        <!-- <div class="header-cart-wrapbtn"> -->
+                        <!-- Button -->
+                        <a href="<?php echo base_url('belanja') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                            Lihat daftar favorit
+                        </a>
+                        <!-- </div> -->
 
-                        <div class="header-cart-wrapbtn">
-                            <!-- Button -->
+                        <!-- <div class="header-cart-wrapbtn">
+                            Button
                             <a href="<?php echo base_url('belanja/checkout') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                                 Check Out
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -234,20 +278,20 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
         <ul class="main-menu">
             <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
                 <span class="topbar-child1">
-                    <?php echo $site->alamat ?>
+                    Jl. Raya Kasianto, Goranggareng, Kawedanan, Magetan
                 </span>
             </li>
 
             <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
                 <div class="topbar-child2-mobile">
                     <span class="topbar-email">
-                        <?php echo $site->email ?>
+                        optikwijaya@gmail.com
                     </span>
 
                     <div class="topbar-language rs1-select2">
                         <select class="selection-1" name="time">
-                            <option><?php echo $site->telepon ?></option>
-                            <option><?php echo $site->email ?></option>
+                            <option>085779842345</option>
+                            <option>optikwijaya@gmail.com</option>
                         </select>
                     </div>
                 </div>
@@ -255,8 +299,8 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
 
             <li class="item-topbar-mobile p-l-10">
                 <div class="topbar-social-mobile">
-                    <a href="<?php echo $site->facebook ?>" class="topbar-social-item fa fa-facebook"></a>
-                    <a href="<?php echo $site->instagram ?>" class="topbar-social-item fa fa-instagram"></a>
+                    <a href="" class="topbar-social-item fa fa-facebook"></a>
+                    <a href="" class="topbar-social-item fa fa-instagram"></a>
                 </div>
             </li>
 
@@ -270,7 +314,7 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
                 <a href="<?php echo base_url('produk') ?>">Produk &amp; Belanja</a>
                 <ul class="sub-menu">
                     <?php foreach ($nav_produk_mobile as $nav_produk_mobile) { ?>
-                        <li><a href="<?php echo base_url('produk/kategori/' . $nav_produk->sub_kategori) ?>">
+                        <li><a href="<?php echo base_url('produk/kategori/' . $nav_produk->slug_kategori) ?>">
                                 <?php echo $nav_produk_mobile->nama_kategori ?>
                             </a></li>
                     <?php } ?>

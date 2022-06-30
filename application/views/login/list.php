@@ -29,10 +29,6 @@
         Preloader end
     ********************-->
 
-
-
-
-
     <div class="login-form-bg h-100">
         <div class="container h-100">
             <div class="row justify-content-center h-100">
@@ -46,7 +42,9 @@
 
                                 <!-- <form class="mt-5 mb-5 login-input"> -->
                                 <form method="post" action="<?= base_url('login'); ?>">
+                                    <br>
                                     <h4 class="text-center">Masukkan username dan password</h4>
+                                    <br>
 
                                     <?php
                                     // Notifikasi error
@@ -70,7 +68,6 @@
                                     echo form_open(base_url('login'), 'class="form-validation"');
                                     ?>
 
-
                                     <div class="form-group">
                                         <input type="text" name="username" class="form-control" placeholder="Username">
                                     </div>
@@ -90,7 +87,6 @@
             </div>
         </div>
     </div>
-
 
 
 

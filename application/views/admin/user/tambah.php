@@ -7,17 +7,40 @@
 
         //Form open
         echo form_open(base_url('admin/user/tambah'), 'class="form-validation"');
+        $id_pengguna = date('d') . strtoupper(random_string('alnum', 2));
         ?>
 
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
+                    <h4 class="card-title">TAMBAH ADMIN</h4>
+                    <br>
                     <div class="form-validation">
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Nomor ID Admin</label>
+
+                            <label class="col-lg-4 col-form-label">
+                                <h6>ID Admin</h6>
+                            </label>
+                            <?php
+                            function randomString($length)
+                            {
+                                $str        = "";
+                                $characters = '123456789';
+                                $max        = strlen($characters) - 1;
+                                for ($i = 0; $i < $length; $i++) {
+                                    $rand = mt_rand(0, $max);
+                                    $str .= $characters[$rand];
+                                }
+                                return $str;
+                            }
+                            ?>
                             <div class="col-lg-6">
-                                <input type="number" class="form-control" name="id_pengguna" placeholder="Nomor ID Admin" value="<?php echo set_value('id_pengguna') ?>" required>
+                                <input type="text" name="id_pengguna" id="id_pengguna" class="form-control" value="<?php echo randomString(4); ?>" readonly required>
                             </div>
+                            <!-- <label class="col-lg-4 col-form-label">ID Admin</label>
+                            <div class="col-lg-6">
+                                <th><input type="text" name="id_pengguna" class="form-control" value="<?php echo $id_pengguna ?>" readonly required></th>
+                            </div> -->
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Nama Admin</label>
@@ -63,7 +86,7 @@
                                 </select>
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label"></label>
                             <div class="col-lg-6">

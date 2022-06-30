@@ -12,11 +12,13 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
+                    <h4 class="card-title">EDIT ADMIN</h4>
+                    <br>
                     <div class="form-validation">
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Nomor ID Admin</label>
                             <div class="col-lg-6">
-                                <input type="number" class="form-control" name="id_pengguna" placeholder="Nomor ID Admin" value="<?php echo $user->id_pengguna ?>" readonly>
+                                <input type="text" class="form-control" name="id_pengguna" placeholder="Nomor ID Admin" value="<?php echo $user->id_pengguna ?>" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -60,7 +62,6 @@
                                 <input type="password" class="form-control" name="password2" id="password" placeholder="Ulangi Password Baru" required>
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Level Hak Akses</label>
                             <div class="col-lg-6">
@@ -72,7 +73,7 @@
                                 </select>
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label"></label>
                             <div class="col-lg-6">

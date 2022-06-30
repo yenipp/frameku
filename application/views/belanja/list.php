@@ -16,12 +16,13 @@
                 <hr>
                 <table class="table-shopping-cart">
                     <tr class="table-head">
-                        <th class="column-1">Gambar</th>
-                        <th class="column-2">Produk</th>
-                        <th class="column-3" width="20%">Harga</th>
-                        <th class="column-4 p-l-70">Jumlah</th>
-                        <th class="column-5" width="15%">Sub Total</th>
-                        <th class="column-6" width="20%">Aksi</th>
+                        <th class="column-1">No</th>
+                        <th class="column-2">Gambar</th>
+                        <th class="column-3" width="20%">Nama Produk</th>
+                        <th class="column-4">Harga</th>
+                        <!-- <th class="column-4 p-l-70">Jumlah</th> -->
+                        <!-- <th class="column-5" width="15%">Sub Total</th> -->
+                        <th class="column-5" width="20%">Aksi</th>
                     </tr>
 
                     <?php
@@ -32,18 +33,20 @@
                         $produk    = $this->produk_model->detail($id_produk);
 
                         //Form update
-                        echo form_open(base_url('belanja/update_cart/' . $keranjang['rowid']));
+                        // echo form_open(base_url('belanja/update_cart/' . $keranjang['rowid']));
                     ?>
 
                         <tr class="table-row">
-                            <td class="column-1">
+                            <?php $no = 1; ?>
+                            <td class="column-1"><?php echo $no++ ?></td>
+                            <td class="column-3">
                                 <div class="cart-img-product b-rad-4 o-f-hidden">
-                                    <img src="<?php echo base_url('assets/upload/image/thumbs/' . $produk->gambar_produk) ?>" alt="<?php echo $keranjang['name'] ?>">
+                                    <img src="<?php echo base_url('assets/upload/frame/' . $produk->gambar_produk) ?>" alt="<?php echo $keranjang['name'] ?>">
                                 </div>
                             </td>
                             <td class="column-2"><?php echo $keranjang['name'] ?></td>
                             <td>Rp. <?php echo number_format($keranjang['price'], '0', ',', '.') ?></td>
-                            <td class="column-4">
+                            <!-- <td class="column-4">
                                 <div class="flex-w bo5 of-hidden w-size17">
                                     <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
                                         <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
@@ -55,17 +58,18 @@
                                         <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                     </button>
                                 </div>
-                            </td>
-                            <td class="column-5">Rp.
+                            </td> -->
+                            <!-- <td class="column-5">Rp.
                                 <?php
-                                $sub_total = $keranjang['price'] * $keranjang['qty'];
-                                echo number_format($sub_total, '0', ',', '.');
+                                // $sub_total = $keranjang['price'] * $keranjang['qty'];
+                                // echo number_format($sub_total, '0', ',', '.');
+                                // 
                                 ?>
-                            </td>
+                            </td> -->
                             <td>
-                                <button type="submit" name="update" class="btn btn-success btn-sm">
+                                <!-- <button type="submit" name="update" class="btn btn-success btn-sm">
                                     <i class="fa fa-edit"> Update</i>
-                                </button>
+                                </button> -->
 
                                 <a href="<?php echo base_url('belanja/hapus/' . $keranjang['rowid']) ?>" class="btn btn-warning btn-sm">
                                     <i class="fa fa-trash-o"> Hapus</i>
@@ -74,25 +78,25 @@
                         </tr>
                     <?php
                         //Echo form close
-                        echo form_close();
+                        // echo form_close();
                         //End looping keranjang belanja
                     }
                     ?>
 
-                    <tr class="table-row">
+                    <!-- <tr class="table-row">
                         <td colspan="4" class="column-1">Total Belanja</td>
                         <td class="column-2">Rp. <?php echo number_format($this->cart->total(), '0', ',', '.') ?> </td>
-                    </tr>
+                    </tr> -->
 
                 </table><br>
                 <p class="pull-right">
                     <!-- Button Hapus Belanja-->
-                    <a href="<?php echo base_url('belanja/hapus') ?>">
-                        <i class="fa fa-trash-o"></i> Bersihkan keranjang Belanja
+                    <a href="<?php echo base_url('belanja/hapus') ?>" class="btn btn-success btn-sm">
+                        <i class="fa fa-trash-o"></i> Bersihkan daftar favorit
                     </a>
-                    <a href="<?php echo base_url('belanja/checkout') ?>" class="btn btn-success btn-sm">
+                    <!-- <a href="<?php echo base_url('belanja/checkout_barang') ?>" class="btn btn-success btn-sm">
                         <i class="fa fa-shopping-cart"></i> Checkout
-                    </a>
+                    </a> -->
                     <!-- <a href="<?php echo base_url('belanja/hapus') ?>" class="btn btn-success btn-sm">
                     <i class="fa fa-trash-o"></i> Bersihkan keranjang Belanja
                 </a> -->
