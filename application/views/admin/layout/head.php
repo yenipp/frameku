@@ -12,6 +12,25 @@
     <link href="<?php echo base_url() ?>assets/admin/./plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/admin/css/style.css" rel="stylesheet">
 
+    <style type="text/css" media="screen">
+        /* overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, .1);
+
+        }
+
+        .overlay:target {
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+
+
 </head>
 
 <body>

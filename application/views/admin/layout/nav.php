@@ -15,12 +15,38 @@
                             <i class="fa fa-sitemap"></i><span class="nav-text">PRODUK</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="<?php echo base_url('admin/produk') ?>"><i class="fa fa-table"></i>Data Produk</a></li>
-                            <li><a href="<?php echo base_url('admin/produk/tambah') ?>"><i class="fa fa-plus"></i>Tambah Produk</a></li>
+                            <li><a href="<?php echo base_url('admin/produk') ?>"><i class="fa fa-table"></i>Data Frame</a></li>
+                            <!-- <li><a href="<?php echo base_url('admin/produk/tambah') ?>"><i class="fa fa-plus"></i>Tambah Produk</a></li> -->
                             <li><a href="<?php echo base_url('admin/kategori') ?>"><i class="fa fa-tags"></i>Kategori Produk</a></li>
                         </ul>
                     </li>
                     <!-- AKHIR MENU PRODUK -->
+
+                    <!-- MENU BERITA -->
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="fa fa-book"></i><span class="nav-text">BERITA</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="<?php echo base_url('admin/berita') ?>"><i class="fa fa-table"></i>Data BERITA</a></li>
+                        </ul>
+                    </li>
+                    <!-- AKHIR MENU BERITA -->
+
+                    <!-- MENU PELANGGAN -->
+                    <!-- <li><a href="<?php echo base_url('admin/pelanggan') ?>"><i class="fa fa-user"></i>PELANGGAN</a></li> -->
+                    <!-- AKHIR MENU PELANGGAN -->
+
+                    <!-- MENU PELANGGAN -->
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="fa fa-user"></i><span class="nav-text">PELANGGAN</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="<?php echo base_url('admin/pelanggan') ?>"><i class="fa fa-table"></i>Data PELANGGAN</a></li>
+                        </ul>
+                    </li>
+                    <!-- AKHIR MENU PELANGGAN -->
 
                     <!-- MENU USER/PENGGUNA -->
                     <li class="mega-menu mega-menu-sm">
@@ -29,13 +55,13 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="<?php echo base_url('admin/user') ?>"><i class="fa fa-table"></i>Data ADMIN</a></li>
-                            <li><a href="<?php echo base_url('admin/user/tambah') ?>"><i class="fa fa-plus"></i>Tambah ADMIN</a></li>
+                            <!-- <li><a href="<?php echo base_url('admin/user/tambah') ?>"><i class="fa fa-plus"></i>Tambah ADMIN</a></li> -->
                         </ul>
                     </li>
                     <!-- AKHIR MENU USER/PENGGUNA -->
 
                     <!-- MENU KONFIGURASI -->
-                    <li class="mega-menu mega-menu-sm">
+                    <!-- <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="fa fa-wrench"></i><span class="nav-text">KONFIGURASI</span>
                         </a>
@@ -44,8 +70,12 @@
                             <li><a href="<?php echo base_url('admin/konfigurasi/logo') ?>"><i class="fa fa-image"></i>Konfigurasi Logo</a></li>
                             <li><a href="<?php echo base_url('admin/konfigurasi/icon') ?>"><i class="fa fa-home"></i>Konfigurasi Icon</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <!-- AKHIR MENU KONFIGURASI -->
+
+                    <!-- MENU DETAIL PROFIL PENGGUNA -->
+                    <li><a href="<?php echo base_url('admin/user/detail_pengguna') ?>"><i class="fa fa-user"></i>PROFIL SAYA</a></li>
+                    <!-- AKHIR MENU DETAIL PROFIL PENGGUNA -->
 
 
                     <!-- <li class="mega-menu mega-menu-sm">

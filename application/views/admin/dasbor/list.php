@@ -1,97 +1,80 @@
-        <!--**********************************
-            Content body start
-        ***********************************-->
-        <div class="content-body">
+<div class="content-body">
 
-            <div class="row page-titles mx-0">
-                <div class="col p-md-0">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
-                    </ol>
-                </div>
-            </div>
-            <!-- row -->
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Data Table</h4>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered zero-configuration">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                <td>2011/07/25</td>
-                                                <td>$170,750</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>2009/01/12</td>
-                                                <td>$86,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cedric Kelly</td>
-                                                <td>Senior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                                <td>2012/03/29</td>
-                                                <td>$433,060</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Airi Satou</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>33</td>
-                                                <td>2008/11/28</td>
-                                                <td>$162,700</td>
-                                            </tr>
-                                        </tbody>
-                                        <!-- <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot> -->
-                                    </table>
-                                </div>
-                            </div>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-4">
+                    <div class="card-body">
+                        <h2 class="card-title text-white">DATA PRODUK</h2>
+                        <div class="d-inline-block">
+                            <h3 class="text-white"><?php echo $this->dasbor_model->total_produk()->total;  ?><small> Produk</small></h3>
+                            <!-- <p class="text-white mb-0">Jan - March 2019</p> -->
                         </div>
+                        <span class="float-right display-5 opacity-5"><i class="fa fa-book"></i></span>
                     </div>
                 </div>
             </div>
-            <!-- #/ container -->
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-1">
+                    <div class="card-body">
+                        <h2 class="card-title text-white">DATA BERITA</h2>
+                        <div class="d-inline-block">
+                            <h3 class="text-white"><?php echo $this->dasbor_model->total_berita()->total;  ?><small> Berita</small></h3>
+                            <!-- <p class="text-white mb-0">Jan - March 2019</p> -->
+                        </div>
+                        <span class="float-right display-5 opacity-5"><i class="fa fa-notebook"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-7">
+                    <div class="card-body">
+                        <h2 class="card-title text-white">DATA PELANGGAN</h2>
+                        <div class="d-inline-block">
+                            <h3 class="text-white"><?php echo $this->dasbor_model->total_pelanggan()->total;  ?><small> Pelanggan</small></h3>
+                            <!-- <p class="text-white mb-0">Jan - March 2019</p> -->
+                        </div>
+                        <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-1">
+                    <div class="card-body">
+                        <h2 class="card-title text-white">DATA TRANSAKSI</h2>
+                        <div class="d-inline-block">
+                            <h3 class="text-white"><?php echo $this->dasbor_model->total_header_transaksi()->total;  ?> <small>Transaksi</small> </h3>
+                            <!-- <p class="text-white mb-0">Jan - March 2019</p> -->
+                        </div>
+                        <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-5">
+                    <div class="card-body">
+                        <h2 class="card-title text-white">Transaksi Keseluruhan</h2>
+                        <div class="d-inline-block">
+                            <h3 class="text-white"><?php echo number_format($this->dasbor_model->total_transaksi()->total)  ?></h3>
+                            <p class="text-white mb-0">Jan - March 2019</p>
+                        </div>
+                        <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-3">
+                    <div class="card-body">
+
+                        <h2 class="card-title text-white">DATA ADMIN</h2>
+                        <div class="d-inline-block">
+                            <h3 class="text-white"><?php echo $this->dasbor_model->total_pengguna()->total;  ?> <small>Admin</small> </h3>
+                            <!-- <p class="text-white mb-0">Jan - March 2019</p> -->
+                        </div>
+                        <span class="float-right display-5 opacity-5"><i class="fa fa-lock"></i></span>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->

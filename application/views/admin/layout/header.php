@@ -1,14 +1,14 @@
 <!--**********************************
            Nav Header start
         ***********************************-->
-<div class="nav-header">
+<div>
+    <!-- <div class="nav-header"> -->
     <div class="brand-logo">
-        <!-- <a href="index.html"> -->
         <a href="<?php echo base_url('admin/dasbor') ?>">
-            <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
-            <span class="logo-compact"><img src="<?php echo base_url() ?>assets/admin/./images/logo-compact.png" alt=""></span>
+            <!-- <b class="logo-abbr"><img src="images/logo.png" alt=""> </b> -->
+            <!-- <span class="logo-compact"><img src="<?php echo base_url() ?>assets/admin/./images/logo-compact.png" alt=""></span> -->
             <span class="brand-title">
-                <img src="<?php echo base_url() ?>assets/admin/images/logo-text.png" alt="">
+                <img src="<?php echo base_url() ?>assets/upload/image/kisspng_rayban_wayfarer.jpg" alt="">
             </span>
         </a>
     </div>

@@ -25,7 +25,7 @@ class Produk_model extends CI_Model
         $this->db->select('tb_produk.*,
                             tb_pengguna.nama_pengguna,
                             tb_kategori.nama_kategori,
-                            tb_kategori.sub_kategori,
+                            tb_kategori.slug_kategori,
                             COUNT(tb_gambar.id_gambar) AS total_gambar');
         $this->db->from('tb_produk');
         // JOIN
@@ -34,7 +34,8 @@ class Produk_model extends CI_Model
         $this->db->join('tb_gambar', 'tb_gambar.id_produk = tb_produk.id_produk', 'left');
         // END JOIN
         $this->db->group_by('tb_produk.id_produk');
-        $this->db->order_by('id_produk', 'desc');
+        // $this->db->order_by('tanggal_post', 'asc');
+        $this->db->order_by('tanggal_post', 'asc');
         $query = $this->db->get();
         return $query->result();
     }
@@ -45,7 +46,7 @@ class Produk_model extends CI_Model
         $this->db->select('tb_produk.*,
                             tb_pengguna.nama_pengguna,
                             tb_kategori.nama_kategori,
-                            tb_kategori.sub_kategori,
+                            tb_kategori.slug_kategori,
                             COUNT(tb_gambar.id_gambar) AS total_gambar');
         $this->db->from('tb_produk');
         // JOIN
@@ -55,19 +56,19 @@ class Produk_model extends CI_Model
         // END JOIN
         $this->db->where('tb_produk.status_produk', 'Publish');
         $this->db->group_by('tb_produk.id_produk');
-        $this->db->order_by('id_produk', 'desc');
+        $this->db->order_by('tanggal_post', 'asc');
         $this->db->limit(12);
         $query = $this->db->get();
         return $query->result();
     }
 
     //Read produk
-    public function read($sub_produk)
+    public function read($slug_produk)
     {
         $this->db->select('tb_produk.*,
                             tb_pengguna.nama_pengguna,
                             tb_kategori.nama_kategori,
-                            tb_kategori.sub_kategori,
+                            tb_kategori.slug_kategori,
                             COUNT(tb_gambar.id_gambar) AS total_gambar');
         $this->db->from('tb_produk');
         // JOIN
@@ -76,9 +77,9 @@ class Produk_model extends CI_Model
         $this->db->join('tb_gambar', 'tb_gambar.id_produk = tb_produk.id_produk', 'left');
         // END JOIN
         $this->db->where('tb_produk.status_produk', 'Publish');
-        $this->db->where('tb_produk.sub_produk', $sub_produk);
+        $this->db->where('tb_produk.slug_produk', $slug_produk);
         $this->db->group_by('tb_produk.id_produk');
-        $this->db->order_by('id_produk', 'desc');
+        $this->db->order_by('tanggal_post', 'asc');
         $query = $this->db->get();
         return $query->row();
     }
@@ -89,7 +90,7 @@ class Produk_model extends CI_Model
         $this->db->select('tb_produk.*,
                              tb_pengguna.nama_pengguna,
                              tb_kategori.nama_kategori,
-                             tb_kategori.sub_kategori,
+                             tb_kategori.slug_kategori,
                              COUNT(tb_gambar.id_gambar) AS total_gambar');
         $this->db->from('tb_produk');
         // JOIN
@@ -99,7 +100,7 @@ class Produk_model extends CI_Model
         // END JOIN
         $this->db->where('tb_produk.status_produk', 'Publish');
         $this->db->group_by('tb_produk.id_produk');
-        $this->db->order_by('id_produk', 'desc');
+        $this->db->order_by('tanggal_post', 'asc');
         $this->db->limit($limit, $start);
         $query = $this->db->get();
         return $query->result();
@@ -122,7 +123,7 @@ class Produk_model extends CI_Model
         $this->db->select('tb_produk.*,
                              tb_pengguna.nama_pengguna,
                              tb_kategori.nama_kategori,
-                             tb_kategori.sub_kategori,
+                             tb_kategori.slug_kategori,
                              COUNT(tb_gambar.id_gambar) AS total_gambar');
         $this->db->from('tb_produk');
         // JOIN
@@ -133,7 +134,7 @@ class Produk_model extends CI_Model
         $this->db->where('tb_produk.status_produk', 'Publish');
         $this->db->where('tb_produk.id_kategori', $id_kategori);
         $this->db->group_by('tb_produk.id_produk');
-        $this->db->order_by('id_produk', 'desc');
+        $this->db->order_by('tanggal_post', 'asc');
         $this->db->limit($limit, $start);
         $query = $this->db->get();
         return $query->result();
@@ -157,7 +158,7 @@ class Produk_model extends CI_Model
         $this->db->select('tb_produk.*,
                             tb_pengguna.nama_pengguna,
                             tb_kategori.nama_kategori,
-                            tb_kategori.sub_kategori,
+                            tb_kategori.slug_kategori,
                             COUNT(tb_gambar.id_gambar) AS total_gambar');
         $this->db->from('tb_produk');
         // JOIN
@@ -166,7 +167,7 @@ class Produk_model extends CI_Model
         $this->db->join('tb_gambar', 'tb_gambar.id_produk = tb_produk.id_produk', 'left');
         // END JOIN
         $this->db->group_by('tb_produk.id_kategori');
-        $this->db->order_by('id_produk', 'desc');
+        $this->db->order_by('tanggal_post', 'asc');
         $query = $this->db->get();
         return $query->result();
     }
@@ -178,7 +179,7 @@ class Produk_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tb_produk');
         $this->db->where('id_produk', $id_produk);
-        $this->db->order_by('id_produk', 'desc');
+        $this->db->order_by('tanggal_post', 'asc');
         $query = $this->db->get();
         return $query->row();
     }
@@ -189,7 +190,7 @@ class Produk_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tb_gambar');
         $this->db->where('id_gambar', $id_gambar);
-        $this->db->order_by('id_gambar', 'desc');
+        $this->db->order_by('tanggal_post', 'asc');
         $query = $this->db->get();
         return $query->row();
     }
@@ -200,7 +201,7 @@ class Produk_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tb_gambar');
         $this->db->where('id_produk', $id_produk);
-        $this->db->order_by('id_gambar', 'desc');
+        $this->db->order_by('tanggal_post', 'asc');
         $query = $this->db->get();
         return $query->result();
     }
@@ -210,26 +211,6 @@ class Produk_model extends CI_Model
     {
         $this->db->insert('tb_produk', $data);
     }
-
-    // //Auto ID PRODUKK
-    // public function buat_kode()
-    // {
-    //     $this->db->select('RIGHT(tb_produk.id_produk,2) as kode', FALSE);
-    //     $this->db->order_by('id_produk', 'DESC');
-    //     $this->db->limit(1);
-    //     $query = $this->db->get('tb_produk');      //cek dulu apakah ada sudah ada kode di tabel.    
-    //     if ($query->num_rows() <> 0) {
-    //         //jika kode ternyata sudah ada.      
-    //         $data = $query->row();
-    //         $kode = intval($data->kode) + 1;
-    //     } else {
-    //         //jika kode belum ada      
-    //         $kode = 1;
-    //     }
-    //     $kodemax = str_pad($kode, 2, "0", STR_PAD_LEFT);
-    //     $kodejadi = "KASIR" . $kodemax;
-    //     return $kodejadi;
-    // }
 
     // Tambah gambar
     public function tambah_gambar($data)

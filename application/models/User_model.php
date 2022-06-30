@@ -20,7 +20,7 @@ class User_model extends CI_Model
     }
 
     //Detail user
-    public function detail($id_pengguna)
+    public function detail_pengguna($id_pengguna)
     {
         $this->db->select('*');
         $this->db->from('tb_pengguna');
@@ -29,6 +29,17 @@ class User_model extends CI_Model
         $query = $this->db->get();
         return $query->row();
     }
+
+    //  //Detail pelanggan
+    //  public function detail($id_pelanggan)
+    //  {
+    //      $this->db->select('*');
+    //      $this->db->from('tb_pelanggan');
+    //      $this->db->where('id_pelanggan', $id_pelanggan);
+    //      $this->db->order_by('id_pelanggan', 'desc');
+    //      $query = $this->db->get();
+    //      return $query->row();
+    //  }
 
     //Login user
     public function login($username, $password)

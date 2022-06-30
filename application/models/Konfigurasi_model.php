@@ -28,7 +28,7 @@ class Konfigurasi_model extends CI_Model
     {
         $this->db->select('tb_produk.*,
                             tb_kategori.nama_kategori,
-                            tb_kategori.sub_kategori');
+                            tb_kategori.slug_kategori');
         $this->db->from('tb_produk');
         // JOIN
         $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_produk.id_kategori', 'left');
@@ -38,4 +38,7 @@ class Konfigurasi_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+
+    //load kontak model
 }

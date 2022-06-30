@@ -2,23 +2,28 @@
     <div class="container-fluid mt-3">
 
         <?php
+        //Error Upload
+        if (isset($error)) {
+            echo '<p class="alert alert-warning">';
+            echo $error;
+            echo '</p>';
+        }
+
         //Notifikasi error
         echo validation_errors('<div class="alert alert-warning">', '</div>');
 
         //Form open
-        echo form_open(base_url('admin/kategori/tambah'), 'class="form-validation"');
-        $id_kategori = date('d') . strtoupper(random_string('alnum', 2));
+        echo form_open_multipart(base_url('admin/frame/tambah1'), 'class="form-validation"');
+        $id_frame = strtoupper(random_string('alnum', 5));
         ?>
 
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">TAMBAH KATEGORI</h4>
-                    <br>
                     <div class="form-validation">
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">
-                                <h6>Nomor Kategori</h6>
+                                <h6>ID Frame</h6>
                             </label>
                             <?php
                             function randomString($length)
@@ -34,29 +39,41 @@
                             }
                             ?>
                             <div class="col-lg-6">
-                                <input type="text" name="id_kategori" id="id_kategori" class="form-control" value="<?php echo randomString(3); ?>" readonly required>
-                            </div>
-                            <!-- <label class="col-lg-4 col-form-label">Nomor Kategori</label>
-                            <div class="col-lg-6">
-                                <th><input type="text" name="id_kategori" class="form-control" value="<?php echo $id_kategori ?>" readonly required></th>
-                            </div> -->
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">
-                                <h6>Nama Kategori</h6>
-                            </label>
-                            <div class="col-lg-6">
-                                <input type="text" class="form-control" name="nama_kategori" placeholder="Nama kategori" value="<?php echo set_value('nama_kategori') ?>" required>
+                                <input type="text" name="id_frame" id="id_frame" class="form-control" value="<?php echo randomString(5); ?>" readonly required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">
-                                <h6>Urutan</h6>
+                                <h6>Nama Frame</h6>
                             </label>
                             <div class="col-lg-6">
-                                <input type="number" class="form-control" name="urutan" placeholder="Urutan kategori" value="<?php echo set_value('email') ?>" required>
+                                <input type="text" class="form-control" name="nama_frame" placeholder="Nama frame" value="<?php echo set_value('nama_frame') ?>" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-lg-4 col-form-label"></div>
+                            <div class="col-lg-4">
+                                <img src="<?= base_url('assets/upload/image/nofoto.jpg') ?>" id="gambar_load" width="150px" alt="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Upload Gambar contoh</h6>
+                            </label>
+                            <div class="col-lg-8">
+                                <input type="file" class="form-control" name="gambar_contoh" id="preview_gambar" value="<?php echo set_value('gambar_contoh') ?>" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Upload Gambar Frame</h6>
+                            </label>
+                            <div class="col-lg-8">
+                                <input type="file" class="form-control" name="gambar_frame" id="preview_gambar_frame" value="<?php echo set_value('gambar_frame') ?>">
                             </div>
                         </div>
 
