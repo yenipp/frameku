@@ -38,30 +38,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-lg-3 col-sm-6">
-                <div class="card gradient-1">
-                    <div class="card-body">
-                        <h2 class="card-title text-white">DATA TRANSAKSI</h2>
-                        <div class="d-inline-block">
-                            <h3 class="text-white"><?php echo $this->dasbor_model->total_header_transaksi()->total;  ?> <small>Transaksi</small> </h3>
-                            <p class="text-white mb-0">Jan - March 2019</p>
-                        </div>
-                        <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="col-lg-3 col-sm-6">
-                <div class="card gradient-5">
-                    <div class="card-body">
-                        <h2 class="card-title text-white">Transaksi Keseluruhan</h2>
-                        <div class="d-inline-block">
-                            <h3 class="text-white"><?php echo number_format($this->dasbor_model->total_transaksi()->total)  ?></h3>
-                            <p class="text-white mb-0">Jan - March 2019</p>
-                        </div>
-                        <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
-                    </div>
-                </div>
-            </div> -->
 
             <div class="col-lg-3 col-sm-6">
                 <div class="card gradient-3">

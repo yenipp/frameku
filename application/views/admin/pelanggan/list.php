@@ -28,10 +28,10 @@
                                         <th>ID Pelanggan</th>
                                         <th>Nama</th>
                                         <th>Email</th>
-                                        <th>No Telepon</th>
-                                        <th>Alamat</th>
+                                        <!-- <th>No Telepon</th>
+                                        <th>Alamat</th> -->
                                         <th>Tanggal Daftar</th>
-                                        <th>Aksi</th>
+                                        <!-- <th>Aksi</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -50,21 +50,21 @@
                                             <td>
                                                 <h6><?php echo $pelanggan->email ?></h6>
                                             </td>
-                                            <td>
+                                            <!-- <td>
                                                 <h6><?php echo $pelanggan->telepon ?></h6>
                                             </td>
                                             <td>
                                                 <h6><?php echo $pelanggan->alamat ?></h6>
-                                            </td>
+                                            </td> -->
                                             <td>
                                                 <h6><?php echo $pelanggan->tanggal_daftar ?></h6>
                                             </td>
                                             <td>
                                                 <!-- <a href="<?php echo base_url() . 'admin/pelanggan/delete/' . $pelanggan->id_pelanggan; ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"> Hapus</a> -->
 
-                                                <a href="<?php echo base_url() . 'admin/pelanggan/delete/' . $pelanggan->id_pelanggan; ?>" class="btn btn-danger btn-xs">
+                                                <!-- <a href="<?php echo base_url() . 'admin/pelanggan/delete/' . $pelanggan->id_pelanggan; ?>" class="btn btn-danger btn-xs">
                                                     <h4><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></h4>
-                                                </a>
+                                                </a> -->
                                             </td>
                                         </tr>
                                     <?php } ?>

@@ -26,20 +26,18 @@
                 <div class="col-md-6">
                     <div id="my_camera" class="w-100" style="background-color: grey;"></div>
                     <br />
-                    <img src="<?php echo base_url('assets/upload/noface.png') ?>" alt="" style="position:absolute; top:70px;left:70px; width: 375px; height: auto; ">
+                    <img src="<?php echo base_url('assets/upload/image/noface.png') ?>" alt="" style="position:absolute; top:70px;left:70px; width: 375px; height: auto; ">
 
                     <!-- <img src="<?php echo base_url('assets/upload/watermark3.png') ?>" alt="" style="margin-top: -470px; margin-left:170px; width: 180px; height: auto;"> -->
                     <div class="d-flex justify-content-between">
                         <input type=button class="btn btn-success" value="Take Snapshot" onClick="take_snapshot()">
                         <select name="" id="frame" class="form-select w-25" onchange="myFunction()">
-
                             <option value="">Pilih Frame Kacamata</option>
                             <?php foreach ($daftar_frame as $df) { ?>
                                 <option value="<?= $df['gambar_frame'] ?>"><?= $df['nama_produk'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
-
                     <input type="hidden" name="image" class="image-tag">
                 </div>
                 <div class="col-md-6">

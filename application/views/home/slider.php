@@ -2,7 +2,8 @@
 <section class="slide1">
     <div class="wrap-slick1">
         <div class="slick1">
-            <div class="item-slick1 item1-slick1" style="background-image: url(<?php echo base_url() ?>assets/upload/image/logohorizontal.jpg">
+            <div class="item-slick1 item1-slick1" style="background-image: url(<?php echo base_url() ?>assets/upload/image/banner1.jpg">
+                <!-- <img src="<?php echo base_url('assets/upload/frame/' . $produk->gambar_produk); ?>" alt="<?php echo $produk->nama_produk ?>" height="200"> -->
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                     <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
 
@@ -12,16 +13,16 @@
                         <!-- New arrivals -->
                     </h2>
 
-                    <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
-                        <!-- Button -->
+                    <!-- <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
+                        Button
                         <a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-                            <!-- Shop Now -->
+                            Shop Now
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
-            <div class="item-slick1 item2-slick1" style="background-image: url(<?php echo base_url() ?>assets/upload/image/mata.png">
+            <div class="item-slick1 item2-slick1" style="background-image: url(<?php echo base_url() ?>assets/upload/image/banner2.jpg">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                     <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
                         <!-- Women Collection 2018 -->
@@ -31,16 +32,16 @@
                         <!-- New arrivals -->
                     </h2>
 
-                    <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
-                        <!-- Button -->
+                    <!-- <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
+                        Button
                         <a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-                            <!-- Shop Now -->
+                            Shop Now
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
-            <div class="item-slick1 item3-slick1" style="background-image: url(<?php echo base_url() ?>assets/upload/image/logohorizontal.jpg">
+            <div class="item-slick1 item3-slick1" style="background-image: url(<?php echo base_url() ?>assets/upload/image/banner4.jpg">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                     <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
                         <!-- Women Collection 2018 -->
@@ -50,12 +51,12 @@
                         <!-- New arrivals -->
                     </h2>
 
-                    <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="rotateIn">
-                        <!-- Button -->
+                    <!-- <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="rotateIn">
+                        Button
                         <a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-                            <!-- Shop Now -->
+                            Shop Now
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 

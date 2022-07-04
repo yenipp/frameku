@@ -136,4 +136,27 @@ class Produk extends CI_Controller
 
         $this->load->view('layout/wrapper', $data, FALSE);
     }
+
+    public function like_barang()
+    {
+        $id_pelanggan   = $this->session->userdata('id_pelanggan');
+        $id_produk      = $this->input->post('id_produk');
+        $nama_produk    = $this->input->post('nama_produk');
+        $harga_produk   = $this->input->post('harga_produk');
+
+        $data = [
+            'id_pelanggan'  => $id_pelanggan,
+            'id_produk'     => $id_produk,
+            'nama_produk'   => $nama_produk,
+            'harga_produk'  => $harga_produk,
+        ];
+        $hasil = $this->db->get_where('tb_wishlist', $data);
+        if ($hasil->num_rows() == 0) {
+            $this->db->insert('tb_wishlist', $data);
+            echo 1;
+        } else {
+            $this->db->delete('tb_wishlist', $data);
+            echo 0;
+        }
+    }
 }

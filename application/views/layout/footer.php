@@ -111,27 +111,27 @@ $nav_produk_footer = $this->konfigurasi_model->nav_produk();
                 Newsletter
             </h4>
 
-            <form>
+            <!-- <form>
                 <div class="effect1 w-size9">
                     <input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
                     <span class="effect1-line"></span>
                 </div>
 
                 <div class="w-size2 p-t-20">
-                    <!-- Button -->
+                    Button
                     <button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
                         Subscribe
                     </button>
                 </div>
 
-            </form>
+            </form> -->
         </div>
     </div>
 
     <div class="t-center p-l-15 p-r-15">
 
         <div class="t-center s-text8 p-t-20">
-            Copyright © 2018 All rights reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            <!-- Copyright © 2018 All rights reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
         </div>
     </div>
 </footer>

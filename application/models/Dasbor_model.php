@@ -46,22 +46,22 @@ class Dasbor_model extends CI_Model
     }
 
     // Total transaksi
-    public function total_header_transaksi()
-    {
-        $this->db->select('COUNT(*) AS total');
-        $this->db->from('tb_header_transaksi');
-        $query = $this->db->get();
-        return $query->row();
-    }
+    // public function total_header_transaksi()
+    // {
+    //     $this->db->select('COUNT(*) AS total');
+    //     $this->db->from('tb_header_transaksi');
+    //     $query = $this->db->get();
+    //     return $query->row();
+    // }
 
-    // Total nilai transaksi sudah bayar
-    public function total_transaksi()
-    {
-        $this->db->select('SUM(tb_transaksi.total_harga) AS total');
-        $this->db->from('tb_transaksi');
-        $query = $this->db->get();
-        return $query->row();
-    }
+    // // Total nilai transaksi sudah bayar
+    // public function total_transaksi()
+    // {
+    //     $this->db->select('SUM(tb_transaksi.total_harga) AS total');
+    //     $this->db->from('tb_transaksi');
+    //     $query = $this->db->get();
+    //     return $query->row();
+    // }
 
     //Listing all transaksi
     public function listing()
