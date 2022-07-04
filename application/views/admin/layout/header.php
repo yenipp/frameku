@@ -5,10 +5,10 @@
     <!-- <div class="nav-header"> -->
     <div class="brand-logo">
         <a href="<?php echo base_url('admin/dasbor') ?>">
-            <!-- <b class="logo-abbr"><img src="images/logo.png" alt=""> </b> -->
+            <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
             <!-- <span class="logo-compact"><img src="<?php echo base_url() ?>assets/admin/./images/logo-compact.png" alt=""></span> -->
             <span class="brand-title">
-                <img src="<?php echo base_url() ?>assets/upload/image/kisspng_rayban_wayfarer.jpg" alt="">
+                <!-- <img src="<?php echo base_url() ?>assets/upload/image/logohorizontal.jpg" height="80" weight="100"> -->
             </span>
         </a>
     </div>
@@ -168,25 +168,27 @@
                     <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                         <span class="activity active"></span>
                         <span class="hidden-xs"><?php echo $this->session->userdata('nama_pengguna'); ?> | <?php echo $this->session->userdata('akses_level'); ?></span>
-                        <img src="<?php echo base_url() ?>assets/admin/images/user/1.png" height="40" width="40" alt="">
+                        <img src="<?php echo base_url() ?>assets/upload/image/iconadmin.jpg" height="40" width="40" alt="">
+                        <!-- <img src="<?php echo base_url() ?>assets/admin/images/user/3.png" height="40" width="40" alt=""> -->
+
                     </div>
                     <div class="drop-down dropdown-profile   dropdown-menu">
                         <div class="dropdown-content-body">
                             <ul>
                                 <li>
                                     <!-- <span class="hidden-xs"><?php echo $this->session->userdata('nama_pengguna'); ?> | <?php echo $this->session->userdata('akses_level'); ?></span> -->
-                                    <a href="app-profile.html"><i class="icon-user"></i> <span><?php echo $this->session->userdata('nama_pengguna'); ?> - <?php echo $this->session->userdata('akses_level'); ?></span></a>
+                                    <a href="<?php echo base_url('admin/user/detail_pengguna') ?>"><i class="icon-user"></i> <span><?php echo $this->session->userdata('nama_pengguna'); ?> - <?php echo $this->session->userdata('akses_level'); ?></span></a>
                                 </li>
                                 <!-- <li>
                                     <a href="email-inbox.html"><i class="icon-envelope-open"></i> <span>Inbox</span>
                                         <div class="badge gradient-3 badge-pill badge-primary">3</div>
                                     </a>
-                                </li>
+                                </li> -->
 
                                 <hr class="my-2">
                                 <li>
-                                    <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
-                                </li> -->
+                                    <a href="<?php echo base_url('admin/user/detail_pengguna') ?>"><i class="icon-lock"></i> <span>Ubah Password</span></a>
+                                </li>
                                 <li><a href="<?php echo base_url('login/logout') ?>"><i class="icon-key"></i> <span>Logout</span></a></li>
                             </ul>
                         </div>

@@ -61,10 +61,15 @@
                                                 <h6><?php echo $user->akses_level ?></h6>
                                             </td>
                                             <td>
-                                                <a href="<?php echo base_url() . 'admin/user/edit/' . $user->id_pengguna; ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                                                <!-- <a href="<?php echo base_url() . 'admin/user/edit/' . $user->id_pengguna; ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a> -->
+                                                <!-- <a href="<?php echo base_url() . 'admin/user/delete/' . $user->id_pengguna; ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"> Hapus</a> -->
 
-                                                <a href="<?php echo base_url() . 'admin/user/delete/' . $user->id_pengguna; ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"> Hapus</a>
-
+                                                <a href="<?php echo base_url() . 'admin/user/edit/' . $user->id_pengguna; ?>" class="btn btn-warning btn-xs">
+                                                    <h4><i class="fa fa-edit"></i></h4>
+                                                </a>
+                                                <a href="<?php echo base_url() . 'admin/user/delete/' . $user->id_pengguna; ?>" class="btn btn-danger btn-xs">
+                                                    <h4><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></h4>
+                                                </a>
                                             </td>
                                         </tr>
                                     <?php } ?>

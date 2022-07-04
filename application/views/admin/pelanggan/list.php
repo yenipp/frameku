@@ -60,8 +60,11 @@
                                                 <h6><?php echo $pelanggan->tanggal_daftar ?></h6>
                                             </td>
                                             <td>
-                                                <a href="<?php echo base_url() . 'admin/pelanggan/delete/' . $pelanggan->id_pelanggan; ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"> Hapus</a>
+                                                <!-- <a href="<?php echo base_url() . 'admin/pelanggan/delete/' . $pelanggan->id_pelanggan; ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"> Hapus</a> -->
 
+                                                <a href="<?php echo base_url() . 'admin/pelanggan/delete/' . $pelanggan->id_pelanggan; ?>" class="btn btn-danger btn-xs">
+                                                    <h4><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></h4>
+                                                </a>
                                             </td>
                                         </tr>
                                     <?php } ?>

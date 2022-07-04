@@ -20,15 +20,29 @@ class Header_transaksi_model extends CI_Model
     }
 
     //Listing all header_transaksi
+    // public function pelanggan($id_pelanggan)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('tb_header_transaksi');
+    //     $this->db->where('tb_header_transaksi.id_pelanggan', $id_pelanggan);
+    //     // JOIN
+    //     $this->db->join('tb_transaksi', 'tb_transaksi.kode_transaksi = tb_header_transaksi.kode_transaksi', 'left');
+    //     //END JOIN
+    //     $this->db->order_by('id_header_transaksi', 'desc');
+    //     $query = $this->db->get();
+    //     return $query->result();
+    // }
+
+    //Listing all header_transaksi
     public function pelanggan($id_pelanggan)
     {
         $this->db->select('*');
-        $this->db->from('tb_header_transaksi');
-        $this->db->where('tb_header_transaksi.id_pelanggan', $id_pelanggan);
+        $this->db->from('tb_wishlist');
+        $this->db->where('tb_wishlist.id_pelanggan', $id_pelanggan);
         // JOIN
-        $this->db->join('tb_transaksi', 'tb_transaksi.kode_transaksi = tb_header_transaksi.kode_transaksi', 'left');
+        // $this->db->join('tb_transaksi', 'tb_transaksi.kode_transaksi = tb_header_transaksi.kode_transaksi', 'left');
         //END JOIN
-        $this->db->order_by('id_header_transaksi', 'desc');
+        $this->db->order_by('id_wishlist', 'desc');
         $query = $this->db->get();
         return $query->result();
     }

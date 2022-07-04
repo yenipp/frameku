@@ -7,7 +7,7 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
 <div class="wrap_header">
     <!-- Logo -->
     <a href="<?php echo base_url() ?>" class="logo">
-        <img src="<?= base_url('assets/upload/image/mata.png') ?>"> Optik Wijaya Kusuma
+        <img src="<?= base_url('assets/upload/image/logohorizontal.jpg') ?>"> Optik Wijaya Kusuma
     </a>
 
     <!-- Menu -->
@@ -50,13 +50,13 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
 
         <?php if ($this->session->userdata('email')) { ?>
 
-            <a href="<?php echo base_url('dasbor') ?>" class="header-wrapicon1 dis-block">
-                <img src="<?php echo base_url('assets/upload/iconuser.png') ?>" class="header-icon1" alt="ICON">
+            <a href="<?php echo base_url('dasbor/belanja/') ?>" class="header-wrapicon1 dis-block">
+                <img src="<?php echo base_url('assets/upload/image/iconuser.png') ?>" class="header-icon1" alt="ICON">
                 <?php echo $this->session->userdata('nama_pelanggan'); ?>&nbsp; &nbsp;
             </a>
 
             <a href="<?php echo base_url('masuk/logout') ?>" class="header-wrapicon1 dis-block">
-                <img src="<?php echo base_url('assets/upload/iconlogout.png') ?>" class="header-icon1" alt="ICON">
+                <img src="<?php echo base_url('assets/upload/image/iconlogout.png') ?>" class="header-icon1" alt="ICON">
                 Logout
             </a>
 

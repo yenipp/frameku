@@ -12,7 +12,7 @@
                     <!-- MENU PRODUK -->
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="fa fa-sitemap"></i><span class="nav-text">PRODUK</span>
+                            <i class="icon-grid menu-icon"></i><span class="nav-text">PRODUK</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="<?php echo base_url('admin/produk') ?>"><i class="fa fa-table"></i>Data Frame</a></li>
@@ -25,7 +25,7 @@
                     <!-- MENU BERITA -->
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="fa fa-book"></i><span class="nav-text">BERITA</span>
+                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">BERITA</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="<?php echo base_url('admin/berita') ?>"><i class="fa fa-table"></i>Data BERITA</a></li>
@@ -40,7 +40,7 @@
                     <!-- MENU PELANGGAN -->
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="fa fa-user"></i><span class="nav-text">PELANGGAN</span>
+                            <i class="fa fa-users"></i><span class="nav-text">PELANGGAN</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="<?php echo base_url('admin/pelanggan') ?>"><i class="fa fa-table"></i>Data PELANGGAN</a></li>
@@ -51,7 +51,7 @@
                     <!-- MENU USER/PENGGUNA -->
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="fa fa-lock"></i><span class="nav-text">ADMIN</span>
+                            <i class="icon-lock"></i><span class="nav-text">ADMIN</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="<?php echo base_url('admin/user') ?>"><i class="fa fa-table"></i>Data ADMIN</a></li>
@@ -199,7 +199,7 @@
                             <i class="icon-notebook menu-icon"></i><span class="nav-text">Pages</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./page-login.html">Login</a></li>
+                            <li><a href="<?php echo base_url('login/') ?>">Login</a></li>
                             <li><a href="./page-register.html">Register</a></li>
                             <li><a href="./page-lock.html">Lock Screen</a></li>
                             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
