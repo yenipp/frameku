@@ -59,14 +59,14 @@
                                 <td>Password</td>
                                 <th><input type="password" name="password" class="form-control" placeholder="Password" value="<?php echo set_value('password') ?>" required></th>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>Telepon</td>
                                 <th><input type="telepon" name="telepon" class="form-control" placeholder="Telepon" value="<?php echo set_value('telepon') ?>" required></th>
                             </tr>
                             <tr>
                                 <td>Alamat</td>
                                 <th><input type="alamat" name="alamat" class="form-control" placeholder="Alamat" value="<?php echo set_value('alamat') ?>" required></th>
-                            </tr>
+                            </tr> -->
                             <td></td>
                             <td>
                                 <button class="btn btn-success btn-sm" type="submit">

@@ -47,7 +47,7 @@
                                 <span class="text-danger">Ketik minimal 6 karakter untuk mengganti password baru atau biarkan kosong</span>
                             </th>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>Telepon</td>
                             <th><input type="telepon" name="telepon" class="form-control" placeholder="Telepon" value="<?php echo $pelanggan->telepon ?>" required></th>
                         </tr>
@@ -55,7 +55,7 @@
                             <td>Alamat</td>
                             <th><input type="alamat" name="alamat" class="form-control" placeholder="Alamat" value="<?php echo $pelanggan->alamat ?>" required>
                             </th>
-                        </tr>
+                        </tr> -->
                         <td></td>
                         <td>
                             <button class="btn btn-success btn-sm" type="submit">

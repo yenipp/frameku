@@ -84,19 +84,19 @@ class Dasbor extends CI_Controller
             array('required' => '%s harus diisi')
         );
 
-        $valid->set_rules(
-            'alamat',
-            'Alamat',
-            'required',
-            array('required' => '%s harus diisi')
-        );
+        // $valid->set_rules(
+        //     'alamat',
+        //     'Alamat',
+        //     'required',
+        //     array('required' => '%s harus diisi')
+        // );
 
-        $valid->set_rules(
-            'telepon',
-            'Nomor Telepon',
-            'required',
-            array('required' => '%s harus diisi')
-        );
+        // $valid->set_rules(
+        //     'telepon',
+        //     'Nomor Telepon',
+        //     'required',
+        //     array('required' => '%s harus diisi')
+        // );
 
         if ($valid->run() === FALSE) {
             //End validasi
@@ -117,16 +117,16 @@ class Dasbor extends CI_Controller
                     'id_pelanggan'      => $id_pelanggan,
                     'nama_pelanggan'    => $i->post('nama_pelanggan'),
                     'password'          => SHA1($i->post('password')),
-                    'telepon'           => $i->post('telepon'),
-                    'alamat'            => $i->post('alamat'),
+                    // 'telepon'           => $i->post('telepon'),
+                    // 'alamat'            => $i->post('alamat'),
                 );
             } else {
                 //Kalau password < 6 maka password tidak diganti
                 $data = array(
                     'id_pelanggan'      => $id_pelanggan,
                     'nama_pelanggan'    => $i->post('nama_pelanggan'),
-                    'telepon'           => $i->post('telepon'),
-                    'alamat'            => $i->post('alamat'),
+                    // 'telepon'           => $i->post('telepon'),
+                    // 'alamat'            => $i->post('alamat'),
                 );
             }
             //End data update

@@ -73,8 +73,8 @@ class Registrasi extends CI_Controller
                 'nama_pelanggan'    => $i->post('nama_pelanggan'),
                 'email'             => $i->post('email'),
                 'password'          => SHA1($i->post('password')),
-                'telepon'           => $i->post('telepon'),
-                'alamat'            => $i->post('alamat'),
+                // 'telepon'           => $i->post('telepon'),
+                // 'alamat'            => $i->post('alamat'),
                 'tanggal_daftar'    => date('Y-m-d H:i:s')
             );
             $this->pelanggan_model->tambah($data);
