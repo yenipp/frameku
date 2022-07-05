@@ -106,6 +106,15 @@ class Produk_model extends CI_Model
         return $query->result();
     }
 
+    public function tampil_berita()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_berita');
+        $this->db->order_by('id_berita', 'asc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     //Total produk
     public function total_produk()
     {

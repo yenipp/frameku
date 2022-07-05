@@ -9,6 +9,7 @@ class Produk extends CI_Controller
         parent::__construct();
         $this->load->model('produk_model');
         $this->load->model('kategori_model');
+        $this->load->model('berita_model');
     }
 
     //Listing data produk
@@ -49,12 +50,15 @@ class Produk extends CI_Controller
         //Ambil data produk
         $page = ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) *  $config['per_page'] : 0;
         $produk = $this->produk_model->produk($config['per_page'], $page);
-        //Pagination end
+        // $berita = $this->produk_model->tampil_berita($config['per_page'], $page);
+        $berita = $this->produk_model->tampil_berita();
 
+        //Pagination end
         $data = array(
             'title'             => 'Produk Optik Wijaya Kusuma',
             'listing_kategori'  => $listing_kategori,
             'produk'            => $produk,
+            'berita'            => $berita,
             'pagin'             => $this->pagination->create_links(),
             'isi'               => 'produk/list'
         );
@@ -104,8 +108,9 @@ class Produk extends CI_Controller
         //AMbil data produk
         $page = ($this->uri->segment(5)) ? ($this->uri->segment(5) - 1) *  $config['per_page'] : 0;
         $produk = $this->produk_model->kategori($id_kategori, $config['per_page'], $page);
-        //Pagination end
 
+
+        //Pagination end
         $data = array(
             'title'             => $kategori->nama_kategori,
             'listing_kategori'  => $listing_kategori,
@@ -134,6 +139,33 @@ class Produk extends CI_Controller
             'isi'               => 'produk/detail'
         );
 
+        $this->load->view('layout/wrapper', $data, FALSE);
+    }
+
+    // public function berita()
+    // {
+    //     // $berita = $this->berita_model->listing();
+    //     // $produk = $this->produk_model->kategori();
+
+    //     $data['berita'] = $this->produk_model->tampil_berita()->result();
+    //     // $data = array(
+    //     //     'title' => 'Data Berita',
+    //     //     'berita' => $berita,
+    //     //     'isi'    => 'produk/list'
+    //     // );
+    //     $this->load->view('layout/wrapper', $data, FALSE);
+    // }
+
+    // //Berita yaa
+    public function berita()
+    {
+        //Ambil dara login id_pelanggan dari session
+        $berita = $this->produk_model->tampil_berita();
+        $data = array(
+            // 'title'         => 'Daftar favorit saya',
+            'berita'           => $berita,
+            'isi'              => 'produk/list'
+        );
         $this->load->view('layout/wrapper', $data, FALSE);
     }
 

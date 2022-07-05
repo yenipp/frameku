@@ -29,16 +29,16 @@ class Dasbor extends CI_Controller
         $this->load->view('layout/wrapper', $data, FALSE);
     }
 
-    //Belanja
+    //Tampilan Wishlist
     public function belanja()
     {
         //Ambil dara login id_pelanggan dari session
         $id_pelanggan = $this->session->userdata('id_pelanggan');
-        $header_transaksi = $this->header_transaksi_model->pelanggan($id_pelanggan);
+        $wishlist = $this->dasbor_model->listing_wishlist($id_pelanggan);
 
         $data = array(
             'title'            => 'Daftar favorit saya',
-            'header_transaksi' => $header_transaksi,
+            'wishlist' => $wishlist,
             'isi'              => 'dasbor/belanja'
         );
         $this->load->view('layout/wrapper', $data, FALSE);
@@ -135,5 +135,16 @@ class Dasbor extends CI_Controller
             redirect(base_url('dasbor/profil'), 'refresh');
         }
         //End masuk database
+    }
+
+    public function wishlist()
+    {
+        $wishlist['wishlist'] = $this->user_model->tampil_wishlist();
+        $data = array(
+            'title'            => 'wishlist saya',
+            'wishlist'        => $wishlist,
+            'isi'              => 'dasbor/belanja'
+        );
+        $this->load->view('layout/wrapper', $data, FALSE);
     }
 }

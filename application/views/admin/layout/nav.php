@@ -60,19 +60,6 @@
                     </li>
                     <!-- AKHIR MENU USER/PENGGUNA -->
 
-                    <!-- MENU KONFIGURASI -->
-                    <!-- <li class="mega-menu mega-menu-sm">
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="fa fa-wrench"></i><span class="nav-text">KONFIGURASI</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="<?php echo base_url('admin/konfigurasi') ?>"><i class="fa fa-home"></i>Konfigurasi Umum</a></li>
-                            <li><a href="<?php echo base_url('admin/konfigurasi/logo') ?>"><i class="fa fa-image"></i>Konfigurasi Logo</a></li>
-                            <li><a href="<?php echo base_url('admin/konfigurasi/icon') ?>"><i class="fa fa-home"></i>Konfigurasi Icon</a></li>
-                        </ul>
-                    </li> -->
-                    <!-- AKHIR MENU KONFIGURASI -->
-
                     <!-- MENU DETAIL PROFIL PENGGUNA -->
                     <li><a href="<?php echo base_url('admin/user/detail_pengguna') ?>"><i class="fa fa-user"></i>PROFIL SAYA</a></li>
                     <!-- AKHIR MENU DETAIL PROFIL PENGGUNA -->
@@ -193,8 +180,8 @@
                             <li><a href="./table-datatable.html" aria-expanded="false">Data Table</a></li>
                         </ul>
                     </li> -->
-                    <li class="nav-label">Pages</li>
-                    <li>
+                    <!-- <li class="nav-label">Pages</li> -->
+                    <!-- <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-notebook menu-icon"></i><span class="nav-text">Pages</span>
                         </a>
@@ -212,7 +199,7 @@
                                 </ul>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

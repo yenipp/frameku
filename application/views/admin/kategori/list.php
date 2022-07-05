@@ -44,9 +44,11 @@
                                         <th>
                                             <h6><b>Urutan</b></h6>
                                         </th>
-                                        <th>
-                                            <h6><b>Aksi</b></h6>
-                                        </th>
+                                        <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
+                                            <th>
+                                                <h6><b>Aksi</b></h6>
+                                            </th>
+                                        <?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,16 +70,16 @@
                                             <td>
                                                 <h6><?php echo $kategori->urutan ?></h6>
                                             </td>
-                                            <td>
-                                                <a href="<?php echo base_url() . 'admin/kategori/edit/' . $kategori->id_kategori; ?>" class="btn btn-warning btn-xs">
-                                                    <h4><i class="fa fa-edit"></i></h4>
-                                                </a>
-
-                                                <a href="<?php echo base_url() . 'admin/kategori/delete/' . $kategori->id_kategori; ?>" class="btn btn-danger btn-xs">
-                                                    <h4><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></h4>
-                                                </a>
-
-                                            </td>
+                                            <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
+                                                <td>
+                                                    <a href="<?php echo base_url() . 'admin/kategori/edit/' . $kategori->id_kategori; ?>" class="btn btn-warning btn-xs">
+                                                        <h4><i class="fa fa-edit"></i></h4>
+                                                    </a>
+                                                    <a href="<?php echo base_url() . 'admin/kategori/delete/' . $kategori->id_kategori; ?>" class="btn btn-danger btn-xs">
+                                                        <h4><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></h4>
+                                                    </a>
+                                                </td>
+                                            <?php } ?>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

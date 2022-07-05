@@ -20,11 +20,13 @@ class Home extends CI_Controller
         // $site       = $this->konfigurasi_model->listing();
         $kategori   = $this->konfigurasi_model->nav_produk();
         $produk     = $this->produk_model->home();
+        $berita = $this->produk_model->tampil_berita();
         $data = array(
             'title'     => 'Wijaya Kusuma | Optik',
             'deskripsi' => 'Optik Wijaya Kusuma menyediakan berbagai macam kacamata',
             'kategori'  => $kategori,
             'produk'    => $produk,
+            'berita'    => $berita,
             'isi'       => 'home/list'
         );
         $this->load->view('layout/wrapper', $data, FALSE);

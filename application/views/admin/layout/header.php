@@ -177,7 +177,8 @@
                             <ul>
                                 <li>
                                     <!-- <span class="hidden-xs"><?php echo $this->session->userdata('nama_pengguna'); ?> | <?php echo $this->session->userdata('akses_level'); ?></span> -->
-                                    <a href="<?php echo base_url('admin/user/detail_pengguna') ?>"><i class="icon-user"></i> <span><?php echo $this->session->userdata('nama_pengguna'); ?> - <?php echo $this->session->userdata('akses_level'); ?></span></a>
+                                    <a href="<?php echo base_url('admin/user/detail_pengguna') ?>"><i class="icon-user"></i> <span><?php echo $this->session->userdata('nama_pengguna'); ?> - <?php echo $this->session->userdata('akses_level'); ?>
+                                        </span></a>
                                 </li>
                                 <!-- <li>
                                     <a href="email-inbox.html"><i class="icon-envelope-open"></i> <span>Inbox</span>

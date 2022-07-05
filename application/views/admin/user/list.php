@@ -29,13 +29,27 @@
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>ID User</th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
-                                        <th>Username</th>
-                                        <th>Akses Level</th>
-                                        <th>Aksi</th>
+                                        <th>
+                                            <h6><b>No</b></h6>
+                                        </th>
+                                        <th>
+                                            <h6><b>ID User</b></h6>
+                                        </th>
+                                        <th>
+                                            <h6><b>Nama</b></h6>
+                                        </th>
+                                        <th>
+                                            <h6><b>Email</b></h6>
+                                        </th>
+                                        <th>
+                                            <h6><b>Username</b></h6>
+                                        </th>
+                                        <th>
+                                            <h6><b>Akses Level</b></h6>
+                                        </th>
+                                        <?php if ($this->session->userdata('akses_level') !== "Admin") { ?>
+                                            <th>Aksi</th>
+                                        <?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,17 +74,19 @@
                                             <td>
                                                 <h6><?php echo $user->akses_level ?></h6>
                                             </td>
-                                            <td>
-                                                <!-- <a href="<?php echo base_url() . 'admin/user/edit/' . $user->id_pengguna; ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a> -->
-                                                <!-- <a href="<?php echo base_url() . 'admin/user/delete/' . $user->id_pengguna; ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"> Hapus</a> -->
+                                            <?php if ($this->session->userdata('akses_level') !== "Admin") { ?>
+                                                <td>
+                                                    <!-- <a href="<?php echo base_url() . 'admin/user/edit/' . $user->id_pengguna; ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a> -->
+                                                    <!-- <a href="<?php echo base_url() . 'admin/user/delete/' . $user->id_pengguna; ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"> Hapus</a> -->
 
-                                                <a href="<?php echo base_url() . 'admin/user/edit/' . $user->id_pengguna; ?>" class="btn btn-warning btn-xs">
-                                                    <h4><i class="fa fa-edit"></i></h4>
-                                                </a>
-                                                <a href="<?php echo base_url() . 'admin/user/delete/' . $user->id_pengguna; ?>" class="btn btn-danger btn-xs">
-                                                    <h4><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></h4>
-                                                </a>
-                                            </td>
+                                                    <a href="<?php echo base_url() . 'admin/user/edit/' . $user->id_pengguna; ?>" class="btn btn-warning btn-xs">
+                                                        <h4><i class="fa fa-edit"></i></h4>
+                                                    </a>
+                                                    <a href="<?php echo base_url() . 'admin/user/delete/' . $user->id_pengguna; ?>" class="btn btn-danger btn-xs">
+                                                        <h4><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></h4>
+                                                    </a>
+                                                </td>
+                                            <?php } ?>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

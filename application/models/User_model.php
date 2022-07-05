@@ -74,4 +74,14 @@ class User_model extends CI_Model
         $this->db->where('id_pengguna', $data['id_pengguna']);
         $this->db->delete('tb_pengguna', $data);
     }
+
+    //Listing all wishlist
+    public function tampil_wishlist()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_wishlist');
+        $this->db->order_by('id_wishlist', 'desc');
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

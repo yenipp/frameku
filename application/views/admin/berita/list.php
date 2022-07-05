@@ -42,14 +42,18 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Nama Berita</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Nama Berita</h6>
+                            </label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="nama_berita" placeholder="Nama berita" value="<?php echo set_value('nama_berita') ?>" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Unggah Gambar Berita</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Unggah Gambar Berita</h6>
+                            </label>
                             <div class="col-lg-6">
                                 <input type="file" class="form-control" name="gambar_berita" value="<?php echo set_value('gambar_berita') ?>">
                             </div>
@@ -97,11 +101,23 @@
                                         <table class="table table-striped table-bordered zero-configuration">
                                             <thead>
                                                 <tr>
-                                                    <th>No</th>
-                                                    <th>Gambar Berita</th>
-                                                    <th>Nama Berita</th>
-                                                    <th>Status</th>
-                                                    <th>Aksi</th>
+                                                    <th>
+                                                        <h6><b>No</b></h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6><b>Gambar Berita</b></h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6><b>Nama Berita</b></h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6><b>Status</b></h6>
+                                                    </th>
+                                                    <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
+                                                        <th>
+                                                            <h6><b>Aksi</b></h6>
+                                                        </th>
+                                                    <?php } ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -120,12 +136,13 @@
                                                         <td>
                                                             <h6><?php echo $berita->status_berita ?></h6>
                                                         </td>
-                                                        <td>
-                                                            <!-- <a href="<?php echo base_url() . 'admin/berita/edit/' . $berita->id_berita; ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a> -->
+                                                        <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
+                                                            <td>
+                                                                <!-- <a href="<?php echo base_url() . 'admin/berita/edit/' . $berita->id_berita; ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a> -->
 
-                                                            <a href="<?php echo base_url() . 'admin/berita/delete/' . $berita->id_berita; ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></a>
-
-                                                        </td>
+                                                                <a href="<?php echo base_url() . 'admin/berita/delete/' . $berita->id_berita; ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></a>
+                                                            </td>
+                                                        <?php } ?>
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>

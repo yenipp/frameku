@@ -36,7 +36,7 @@
                                             <h6><b>Gambar</b></h6>
                                         </th>
                                         <th>
-                                            <h6><b>Nama</b></h6>
+                                            <h6><b>Nama Produk</b></h6>
                                         </th>
                                         <th>
                                             <h6><b>Kategori</b></h6>
@@ -51,8 +51,13 @@
                                             <h6><b>Gambar Frame</b></h6>
                                         </th>
                                         <th>
-                                            <h6><b>Aksi</b></h6>
+                                            <h6><b>Gambar lain</b></h6>
                                         </th>
+                                        <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
+                                            <th>
+                                                <h6><b>Aksi</b></h6>
+                                            </th>
+                                        <?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -69,13 +74,12 @@
 
                                                 </a>
                                                 <!-- <div class="overlay" id="<?php echo $produk->id_produk ?>"></div> -->
-
                                             </td>
                                             <!-- <td>
                                             <h6><?php echo $produk->id_produk ?></h6>
                                         </td> -->
                                             <td>
-                                                <h6><?php echo $produk->nama_produk ?></h6>
+                                                <h6><?php echo substr($produk->nama_produk, 0, 20) ?></h6>
                                             </td>
                                             <td>
                                                 <h6><?php echo $produk->nama_kategori ?></h6>
@@ -90,19 +94,19 @@
                                                 <img src="<?php echo base_url('assets/upload/frame/' . $produk->gambar_frame) ?>" class="img" width="70">
                                             </td>
                                             <td>
-                                                <!-- <a href="<?php echo base_url() . 'admin/produk/detail_produk/' . $produk->id_produk; ?>" class="btn btn-info btn-xs"><i class="fa fa-search-plus"></i> Detail</a> -->
-
                                                 <a href="<?php echo base_url() . 'admin/produk/gambar/' . $produk->id_produk; ?>" class="btn btn-success btn-xs">
                                                     <i class="fa fa-image"></i> (<?php echo $produk->total_gambar ?>)
                                                 </a>
-
-                                                <a href="<?php echo base_url() . 'admin/produk/edit/' . $produk->id_produk; ?>" class="btn btn-warning btn-xs">
-                                                    <h4><i class="fa fa-edit"></i></h4>
-                                                </a>
-
-                                                <?php include('delete.php') ?>
-
                                             </td>
+                                            <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
+                                                <td>
+                                                    <!-- <a href="<?php echo base_url() . 'admin/produk/detail_produk/' . $produk->id_produk; ?>" class="btn btn-info btn-xs"><i class="fa fa-search-plus"></i> Detail</a> -->
+                                                    <a href="<?php echo base_url() . 'admin/produk/edit/' . $produk->id_produk; ?>" class="btn btn-warning btn-xs">
+                                                        <h4><i class="fa fa-edit"></i></h4>
+                                                    </a>
+                                                    <?php include('delete.php') ?>
+                                                </td>
+                                            <?php } ?>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

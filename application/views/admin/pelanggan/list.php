@@ -24,13 +24,23 @@
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>ID Pelanggan</th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
+                                        <th>
+                                            <h6><b>No</b></h6>
+                                        </th>
+                                        <th>
+                                            <h6><b>ID Pelanggan</b></h6>
+                                        </th>
+                                        <th>
+                                            <h6><b>Nama</b></h6>
+                                        </th>
+                                        <th>
+                                            <h6><b>Email</b></h6>
+                                        </th>
                                         <!-- <th>No Telepon</th>
                                         <th>Alamat</th> -->
-                                        <th>Tanggal Daftar</th>
+                                        <th>
+                                            <h6><b>Tanggal Daftar</b></h6>
+                                        </th>
                                         <!-- <th>Aksi</th> -->
                                     </tr>
                                 </thead>

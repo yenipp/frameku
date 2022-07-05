@@ -10,6 +10,9 @@ class Berita extends CI_Controller
         $this->load->model('produk_model');
         //Proteksi halaman
         $this->simple_login->cek_login();
+        // if ($this->session->userdata('akses_level') !== 'Admin') {
+        //     echo "gagal";
+        // }
         //load helper random string
         $this->load->helper('string');
     }
@@ -17,6 +20,8 @@ class Berita extends CI_Controller
     // Data produk
     public function index()
     {
+        // echo $this->session->userdata('akses_level');
+        // exit;
         $berita = $this->berita_model->listing();
 
         $data = array(

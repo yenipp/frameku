@@ -40,21 +40,27 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">ID Produk</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>ID Produk</h6>
+                            </label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="id_produk" value="<?php echo $produk->id_produk ?>" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Nama Produk</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Nama Produk</h6>
+                            </label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="nama_produk" value="<?php echo $produk->nama_produk ?>" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Judul Gambar</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Judul Gambar</h6>
+                            </label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="judul_gambar" placeholder="Nama gambar" value="<?php echo set_value('judul_gambar') ?>" required>
                             </div>
@@ -68,7 +74,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Unggah Gambar</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Unggah Gambar</h6>
+                            </label>
                             <div class="col-lg-6">
                                 <input type="file" class="form-control" name="gambar" id="preview_gambar" placeholder="Gambar produk" value="<?php echo set_value('gambar') ?>" required>
                             </div>
@@ -104,14 +112,23 @@
                                         <table class="table table-striped table-bordered zero-configuration">
                                             <thead>
                                                 <tr>
-                                                    <th>No</th>
-                                                    <th>Gambar</th>
-                                                    <th>Judul Gambar</th>
-                                                    <th>Aksi</th>
+                                                    <th>
+                                                        <h6><b>No</b></h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6><b>Gambar</b></h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6><b>Judul Gambar</b></h6>
+                                                    </th>
+                                                    <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
+                                                        <th>
+                                                            <h6><b>Aksi</b></h6>
+                                                        </th>
+                                                    <?php } ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
-
                                                 <tr>
                                                     <td>1</td>
                                                     <!-- <td><?php echo $gambar->id_gambar ?></td> -->
@@ -127,17 +144,23 @@
                                                 <?php $no = 2;
                                                 foreach ($gambar as $gambar) { ?>
                                                     <tr>
-                                                        <td><?php echo $no++ ?></td>
+                                                        <td>
+                                                            <h6><?php echo $no++ ?></h6>
+                                                        </td>
                                                         <!-- <td><?php echo $gambar->id_gambar ?></td> -->
                                                         <td>
-                                                            <img src="<?php echo base_url('assets/upload/frame/' . $gambar->gambar) ?>" class="img" width="60">
+                                                            <img src="<?php echo base_url('assets/upload/frame/' . $gambar->gambar) ?>" class="img" width="80">
                                                         </td>
-                                                        <td><?php echo $gambar->judul_gambar ?></td>
                                                         <td>
-
-                                                            <a href="<?php echo base_url() . 'admin/produk/delete_gambar/' . $produk->id_produk . '/' . $gambar->id_gambar; ?>" class="btn btn-danger btn-xs" onclick="return confirm ('Yakin ingin menghapus gambar ini?')"><i class="fa fa-trash-o"></i> Hapus</a>
-
+                                                            <h6><?php echo $gambar->judul_gambar ?></h6>
                                                         </td>
+                                                        <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
+                                                            <td>
+                                                                <a href="<?php echo base_url() . 'admin/produk/delete_gambar/' .  $produk->id_produk . '/' . $gambar->id_gambar; ?>" class="btn btn-danger btn-xs">
+                                                                    <h4><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></h4>
+                                                                </a>
+                                                            </td>
+                                                        <?php } ?>
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>
