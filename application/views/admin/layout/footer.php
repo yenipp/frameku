@@ -1,19 +1,11 @@
-        <!--**********************************
-            Footer start
-        ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <!-- <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p> -->
-                <p>Optik Wijaya Kusuma 2022</p>
-            </div>
-        </div>
-        <!--**********************************
-            Footer end
-        ***********************************-->
         </div>
         <!--**********************************
         Main wrapper end
     ***********************************-->
+        <!-- untuk ckeditor -->
+        <script>
+            initSample();
+        </script>
 
         <!--**********************************
         Scripts

@@ -174,12 +174,14 @@ class Produk extends CI_Controller
         $id_pelanggan   = $this->session->userdata('id_pelanggan');
         $id_produk      = $this->input->post('id_produk');
         $nama_produk    = $this->input->post('nama_produk');
+        $gambar_produk  = $this->input->post('gambar_produk');
         $harga_produk   = $this->input->post('harga_produk');
 
         $data = [
             'id_pelanggan'  => $id_pelanggan,
             'id_produk'     => $id_produk,
             'nama_produk'   => $nama_produk,
+            'gambar_produk' => $gambar_produk,
             'harga_produk'  => $harga_produk,
         ];
         $hasil = $this->db->get_where('tb_wishlist', $data);

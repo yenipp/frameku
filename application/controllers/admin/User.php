@@ -44,17 +44,27 @@ class User extends CI_Controller
         );
 
         $valid->set_rules(
-            'email',
-            'Email',
+            'username',
+            'Username',
             'required',
             array('required' => '%s harus diisi')
         );
 
         $valid->set_rules(
-            'username',
-            'Username',
+            'password',
+            'Password',
             'required',
             array('required' => '%s harus diisi')
+        );
+
+        $valid->set_rules(
+            'password2',
+            'Password',
+            'required|matches[password]',
+            array(
+                'required' => '%s harus diisi',
+                'matches' => 'Password tidak sama!'
+            )
         );
 
         if ($valid->run() === FALSE) {
@@ -75,45 +85,39 @@ class User extends CI_Controller
                 $data = array(
                     'id_pengguna'      => $id_pengguna,
                     'nama_pengguna'    => $i->post('nama_pengguna'),
-                    'password'          => SHA1($i->post('password')),
-                    'email'           => $i->post('email'),
-                    'username'            => $i->post('username'),
+                    'password'         => SHA1($i->post('password')),
+                    // 'email'            => $i->post('email'),
+                    'username'         => $i->post('username'),
                 );
             } else {
                 //Kalau password < 6 maka password tidak diganti
                 $data = array(
                     'id_pengguna'      => $id_pengguna,
                     'nama_pengguna'    => $i->post('nama_pengguna'),
-                    'email'           => $i->post('email'),
-                    'username'            => $i->post('username'),
+                    // 'email'            => $i->post('email'),
+                    'username'         => $i->post('username'),
+                    'password'         => SHA1($i->post('password')),
+                    // 'akses_level'      => $i->post('akses_level'),
                 );
             }
             //End data update
             $this->user_model->edit($data);
-            $this->session->set_flashdata('sukses', 'Profil berhasil diperbarui');
+            $this->session->set_flashdata('sukses', 'Password berhasil diubah');
             redirect(base_url('admin/user/detail_pengguna'), 'refresh');
         }
         //End masuk database
     }
 
 
-    // Tambah user
-    public function tambah()
+    //Konfigurasi Umum
+    public function ubah_pengguna()
     {
+        //Ambil dari login id_pengguna dari session
+        $id_pengguna = $this->session->userdata('id_pengguna');
+        $user    = $this->user_model->detail_pengguna($id_pengguna);
+
         //Validasi input
         $valid = $this->form_validation;
-
-        $valid->set_rules(
-            'id_pengguna',
-            'Nomor ID Pengguna',
-            'required|min_length[1]|max_length[4]|is_unique[tb_pengguna.id_pengguna]',
-            array(
-                'required' => '%s harus diisi',
-                'min_length' => '%s minimal 1 karakter',
-                'max_length' => '%s maksimal 11 karakter',
-                'is_unique' => '%s sudah ada. Buat ID Pengguna baru.'
-            )
-        );
 
         $valid->set_rules(
             'nama_pengguna',
@@ -125,11 +129,8 @@ class User extends CI_Controller
         $valid->set_rules(
             'email',
             'Email',
-            'required|valid_email',
-            array(
-                'required' => '%s harus diisi',
-                'valid_email' => '%s harus diisi'
-            )
+            'required',
+            array('required' => '%s harus diisi')
         );
 
         $valid->set_rules(
@@ -166,6 +167,98 @@ class User extends CI_Controller
         if ($valid->run() === FALSE) {
             //End validasi
             $data = array(
+                'title'          => 'Detail Pengguna',
+                'pengguna'       => $user,
+                'isi'            => 'admin/user/detail_pengguna'
+            );
+            $this->load->view('admin/layout/wrapper', $data, FALSE);
+            //Masuk database
+        } else {
+            $i            = $this->input;
+            $data = array(
+                'id_pengguna'   => $user->user,
+                'nama_pengguna' => $i->post('nama_pengguna'),
+                'email'         => $i->post('email'),
+                'username'      => $i->post('username'),
+                'password'      => SHA1($i->post('password')),
+                'akses_level'   => $i->post('akses_level'),
+
+            );
+            $this->konfigurasi_model->edit($data);
+            $this->session->set_flashdata('sukses', 'Profil berhasil diperbarui');
+            redirect(base_url('admin/user/detail_pengguna'), 'refresh');
+        }
+        //End masuk database
+    }
+
+
+    // Tambah user
+    public function tambah()
+    {
+        //Validasi input
+        $valid = $this->form_validation;
+
+        $valid->set_rules(
+            'id_pengguna',
+            'Nomor ID Pengguna',
+            'required|min_length[1]|max_length[4]|is_unique[tb_pengguna.id_pengguna]',
+            array(
+                'required' => '%s harus diisi',
+                'min_length' => '%s minimal 1 karakter',
+                'max_length' => '%s maksimal 11 karakter',
+                'is_unique' => '%s sudah ada. Buat ID Pengguna baru.'
+            )
+        );
+
+        $valid->set_rules(
+            'nama_pengguna',
+            'Nama lengkap',
+            'required',
+            array('required' => '%s harus diisi')
+        );
+
+        // $valid->set_rules(
+        //     'email',
+        //     'Email',
+        //     'required|valid_email',
+        //     array(
+        //         'required' => '%s harus diisi',
+        //         'valid_email' => '%s harus diisi'
+        //     )
+        // );
+
+        $valid->set_rules(
+            'username',
+            'Username',
+            'required|min_length[6]|max_length[20]|is_unique[tb_pengguna.username]',
+            array(
+                'required' => '%s harus diisi',
+                'min_length' => '%s minimal 6 karakter',
+                'max_length' => '%s maksimal 32 karakter',
+                'is_unique' => '%s sudah ada. Buat username baru.'
+            )
+        );
+
+        $valid->set_rules(
+            'password',
+            'Password',
+            'required',
+            array('required' => '%s harus diisi')
+        );
+
+        $valid->set_rules(
+            'password2',
+            'Password',
+            'required|matches[password]',
+            array(
+                'required' => '%s harus diisi',
+                'matches' => 'Password tidak sama!'
+            )
+        );
+
+        if ($valid->run() === FALSE) {
+            //End validasi
+            $data = array(
                 'title' => 'Tambah Pengguna',
                 'isi' => 'admin/user/tambah'
             );
@@ -176,7 +269,7 @@ class User extends CI_Controller
             $data = array(
                 'id_pengguna'   => $i->post('id_pengguna'),
                 'nama_pengguna' => $i->post('nama_pengguna'),
-                'email'         => $i->post('email'),
+                // 'email'         => $i->post('email'),
                 'username'      => $i->post('username'),
                 'password'      => SHA1($i->post('password')),
                 'akses_level'   => $i->post('akses_level'),
@@ -216,15 +309,15 @@ class User extends CI_Controller
             array('required' => '%s harus diisi')
         );
 
-        $valid->set_rules(
-            'email',
-            'Email',
-            'required|valid_email',
-            array(
-                'required' => '%s harus diisi',
-                'valid_email' => '%s harus diisi'
-            )
-        );
+        // $valid->set_rules(
+        //     'email',
+        //     'Email',
+        //     'required|valid_email',
+        //     array(
+        //         'required' => '%s harus diisi',
+        //         'valid_email' => '%s harus diisi'
+        //     )
+        // );
 
         $valid->set_rules(
             'password',
@@ -233,15 +326,15 @@ class User extends CI_Controller
             array('required' => '%s harus diisi')
         );
 
-        $valid->set_rules(
-            'password2',
-            'Password',
-            'required|matches[password]',
-            array(
-                'required' => '%s harus diisi',
-                'matches' => 'Password tidak sama!'
-            )
-        );
+        // $valid->set_rules(
+        //     'password2',
+        //     'Password',
+        //     'required|matches[password]',
+        //     array(
+        //         'required' => '%s harus diisi',
+        //         'matches' => 'Password tidak sama!'
+        //     )
+        // );
 
         if ($valid->run() === FALSE) {
             //End validasi

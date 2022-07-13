@@ -110,7 +110,7 @@ class Berita extends CI_Controller
         $data = array('id_berita' => $id_berita);
         $this->berita_model->delete($data);
         $this->session->set_flashdata('sukses', 'Data telah dihapus');
-        redirect(base_url('admin/berita'), 'refresh');
+        redirect(base_url('admin/berita/'), 'refresh');
     }
 
     // //Delete User

@@ -4,9 +4,9 @@
 <div class="content-body">
     <div class="container-fluid mt-3">
 
-        <p>
+        <!-- <p>
             <a href="<?php echo base_url('admin/produk/tambah') ?>" class="btn mb-1 btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
-        </p>
+        </p> -->
 
         <?php
         //Notifikasi
@@ -24,7 +24,12 @@
                 <div class="card">
                     <!-- <?php echo print_r($produk) ?> -->
                     <div class="card-body">
-                        <h4 class="card-title">DATA FRAME</h4>
+                        <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
+                            <a href="<?php echo base_url('admin/produk/tambah') ?>" class="btn mb-1 btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
+                        <?php } ?>
+                        <center>
+                            <h4 class="card-title">DATA FRAME</h4>
+                        </center>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
@@ -41,9 +46,9 @@
                                         <th>
                                             <h6><b>Kategori</b></h6>
                                         </th>
-                                        <th>
+                                        <!-- <th>
                                             <h6><b>Harga</b></h6>
-                                        </th>
+                                        </th> -->
                                         <th>
                                             <h6><b>Status</b></h6>
                                         </th>
@@ -84,9 +89,9 @@
                                             <td>
                                                 <h6><?php echo $produk->nama_kategori ?></h6>
                                             </td>
-                                            <td>
+                                            <!-- <td>
                                                 <h6><?php echo number_format($produk->harga_produk, '0', ',', '.') ?></h6>
-                                            </td>
+                                            </td> -->
                                             <td>
                                                 <h6><?php echo $produk->status_produk ?></h6>
                                             </td>

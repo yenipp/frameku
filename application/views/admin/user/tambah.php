@@ -43,41 +43,58 @@
                             </div> -->
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Nama Admin</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Admin</h6>
+                            </label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="nama_pengguna" placeholder="Nama Admin" value="<?php echo set_value('nama_pengguna') ?>" required>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Email</label>
                             <div class="col-lg-6">
                                 <input type="email" class="form-control" name="email" placeholder="Email Admin" value="<?php echo set_value('email') ?>" required>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Username</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Username</h6>
+                            </label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo set_value('username') ?>" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Password</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Password</h6>
+                            </label>
                             <div class="col-lg-6">
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="<?php echo set_value('password') ?>" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Password</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Password</h6>
+                            </label>
                             <div class="col-lg-6">
                                 <input type="password" class="form-control" id="password2" name="password2" placeholder="Ulangi Password" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Level Hak Akses</h6>
+                            </label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" name="akses_level" value="Admin" required readonly>
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Level Hak Akses</label>
                             <div class="col-lg-6">
                                 <select type="text" class="form-control" name="akses_level">
@@ -85,7 +102,7 @@
                                     <option value="Super Admin"> Super Admin</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <br>
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label"></label>

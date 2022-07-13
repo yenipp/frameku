@@ -68,7 +68,7 @@ class Registrasi extends CI_Controller
         } else {
             $i = $this->input;
             $data = array(
-                'status_pelanggan'  => 'Pending',
+                // 'status_pelanggan'  => 'Pending',
                 'id_pelanggan'      => $i->post('id_pelanggan'),
                 'nama_pelanggan'    => $i->post('nama_pelanggan'),
                 'email'             => $i->post('email'),
@@ -82,8 +82,8 @@ class Registrasi extends CI_Controller
             $this->session->set_userdata('email', $i->post('email'));
             $this->session->set_userdata('nama_pelanggan', $i->post('nama_pelanggan'));
             //End session
-            $this->session->set_flashdata('sukses', 'Registrasi berhasil');
-            redirect(base_url('registrasi/sukses'), 'refresh');
+            // $this->session->set_flashdata('sukses', 'Registrasi berhasil');
+            redirect(base_url('dasbor/profil'), 'refresh');
         }
         //End masuk database
     }

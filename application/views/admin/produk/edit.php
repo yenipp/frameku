@@ -22,13 +22,11 @@
                     <h4 class="card-title">EDIT PRODUK</h4>
                     <br>
                     <div class="form-validation">
-                        <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">
+                        <!-- <label class="col-lg-4 col-form-label">
                                 <h6>Nomor ID Produk</h6>
-                            </label>
-                            <div class="col-lg-6">
-                                <input type="text" class="form-control" name="id_produk" value="<?php echo $produk->id_produk ?>" readonly>
-                            </div>
+                            </label> -->
+                        <div class="col-lg-6">
+                            <input type="hidden" class="form-control" name="id_produk" value="<?php echo $produk->id_produk ?>" readonly>
                         </div>
 
                         <div class="form-group row">
@@ -83,8 +81,7 @@
                                 <h6>Keterangan Produk</h6>
                             </label>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" name="keterangan" placeholder="keterangan, berat, ukuran produk" value="<?php echo $produk->keterangan ?>" required>
-
+                                <textarea class="form-control" name="keterangan" placeholder="keterangan, berat, ukuran produk" id="editor"><?php echo $produk->keterangan ?></textarea>
                             </div>
                         </div>
 
@@ -106,7 +103,7 @@
                                 <h6>Upload Gambar produk</h6>
                             </label>
                             <div class="col-lg-6">
-                                <input type="file" class="form-control" name="gambar_produk" id="preview_gambar" value="<?php echo $produk->gambar_produk ?>">
+                                <input type="file" class="form-control" name="gambar_produk" id="preview_gambar" accept="image/png, image/gif, image/jpeg" value="<?php echo $produk->gambar_produk ?>">
                             </div>
                         </div>
 

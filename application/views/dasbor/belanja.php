@@ -12,7 +12,11 @@
 
             <div class="col-sm-6 col-md-9 col-lg-9 p-b-50">
 
-                <h1><?php echo $title ?></h1>
+                <div>
+                    <h4>Selamat datang <?php echo $this->session->userdata('nama_pelanggan'); ?></h4>
+                </div>
+                <br>
+                <!-- <h1><?php echo $title ?></h1> -->
                 <p>Berikut adalah daftar favorit Anda</p>
 
                 <?php
@@ -20,9 +24,10 @@
                 if ($wishlist) { ?>
                     <table class="table table-bordered" width="100%">
                         <thead class="thead-light">
-                            <tr class="bg-success">
+                            <tr>
                                 <th>No</th>
                                 <th>ID produk</th>
+                                <th>Gambar produk</th>
                                 <th>Nama Produk</th>
                                 <th>Harga Produk</th>
 
@@ -34,6 +39,10 @@
                                 <tr>
                                     <td><?php echo $i ?></td>
                                     <td><?php echo $wishlist->id_produk ?></td>
+                                    <td>
+                                        <a href="<?php echo base_url('home') ?>">
+                                            <img src="<?php echo base_url('assets/upload/frame/' . $wishlist->gambar_produk) ?>" class="img" width="100">
+                                    </td>
                                     <td><?php echo $wishlist->nama_produk ?></td>
                                     <td><?php echo number_format($wishlist->harga_produk) ?></td>
                                 </tr>
@@ -41,9 +50,9 @@
                             } ?>
                         </tbody>
                         <tfoot>
-                            <tr>
+                            <!-- <tr>
                                 <th>#</th>
-                            </tr>
+                            </tr> -->
                         </tfoot>
                     </table>
 
@@ -51,8 +60,8 @@
                     //Kalau tidak ada tampilkan notifikasi
                 } else { ?>
 
-                    <p class="alert alert-success">
-                        <i class="fa fa-warning"></i> belum ada data transaksi
+                    <p class="alert alert-info">
+                        <i class="fa fa-warning"></i> belum ada data favorit produk
                     </p>
 
                 <?php } ?>

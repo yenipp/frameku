@@ -15,7 +15,7 @@
                     <div class="item-slick2 p-l-15 p-r-15">
 
                         <div class="block3">
-                            <a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+                            <a href="" class="block3-img dis-block hov-img-zoom">
                                 <!-- <img src="<?php echo base_url() ?>assets/templat/images/blog-01.jpg" alt="IMG-BLOG"> -->
                                 <img src="<?php echo base_url('assets/upload/frame/' . $berita->gambar_berita) ?>" alt="<?php echo $berita->nama_berita ?>">
 
@@ -23,7 +23,7 @@
 
                             <div class="block3-txt p-t-14">
                                 <h4 class="p-b-7">
-                                    <a href="blog-detail.html" class="m-text11">
+                                    <a href="" class="m-text11">
                                         <?php echo $berita->nama_berita ?>
                                     </a>
                                 </h4>

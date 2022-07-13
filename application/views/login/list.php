@@ -28,38 +28,42 @@
     <!--*******************
         Preloader end
     ********************-->
-
     <div class="login-form-bg h-100">
         <div class="container h-100">
             <div class="row justify-content-center h-100">
                 <div class="col-xl-6">
                     <div class="form-input-content">
                         <div class="card login-form mb-0">
+                            <br>
+                            <br>
+                            <center>
+                                <img src="<?= base_url('assets/upload/image/logohorizontal.jpg') ?>">
+                            </center>
                             <div class="card-body pt-5">
-                                <a class="text-center" href="index.html">
+                                <!-- <a class="text-center" href="index.html">
                                     <h3><?php echo $title ?></h3>
-                                </a>
+                                </a> -->
 
                                 <!-- <form class="mt-5 mb-5 login-input"> -->
                                 <form method="post" action="<?= base_url('login'); ?>">
-                                    <br>
-                                    <h4 class="text-center">Masukkan username dan password</h4>
+                                    <!-- <br> -->
+                                    <h5 class="text-center">Login Admin</h5>
                                     <br>
 
                                     <?php
                                     // Notifikasi error
-                                    echo validation_errors('<div class="alert alert-success">', '</div>');
+                                    echo validation_errors('<div class="alert alert-info">', '</div>');
 
                                     //Notifikasi gagal login
                                     if ($this->session->flashdata('warning')) {
-                                        echo '<div class="alert alert-warning">';
+                                        echo '<div class="alert alert-info">';
                                         echo $this->session->flashdata('warning');
                                         echo '<div>';
                                     }
 
                                     //Notifikasi logout
                                     if ($this->session->flashdata('sukses')) {
-                                        echo '<div class="alert alert-success">';
+                                        echo '<div class="alert alert-info">';
                                         echo $this->session->flashdata('sukses');
                                         echo '<div>';
                                     }
@@ -80,6 +84,7 @@
                                     <?php echo form_close(); ?>
                                 </form>
                                 <!--   <p class="mt-5 login-form__footer">Dont have account? <a href="page-register.html" class="text-primary">Sign Up</a> now</p> -->
+                                <p class="mt-5 login-form__footer"></p>
                             </div>
                         </div>
                     </div>

@@ -12,6 +12,10 @@
     <link href="<?php echo base_url() ?>assets/admin/./plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/admin/css/style.css" rel="stylesheet">
 
+    <!-- ckeditor -->
+    <script src="<?php echo base_url() ?>assets/ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script src="<?php echo base_url() ?>assets/ckeditor/samples/js/sample.js" type="text/javascript"></script>
+
     <style type="text/css" media="screen">
         /* overlay */
         .overlay {

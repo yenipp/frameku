@@ -75,17 +75,6 @@ class Dasbor_model extends CI_Model
         return $query->row();
     }
 
-    // //Detail wishlist
-    // public function detail_wishlist($id_wishlist)
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('tb_wishlist');
-    //     $this->db->where('id_wishlist', $id_wishlist);
-    //     $this->db->order_by('id_wishlist', 'desc');
-    //     $query = $this->db->get();
-    //     return $query->row();
-    // }
-
     // Tambah
     public function tambah_wishlist($data)
     {

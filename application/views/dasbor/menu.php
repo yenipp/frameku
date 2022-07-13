@@ -24,12 +24,12 @@
 
     <li class="p-t-4">
         <a href="<?php echo base_url('dasbor/profil') ?>" class="s-text13 active1">
-            <i class="fa fa-user"></i> Profil Saya
+            <i class="fa fa-lock"></i> Ubah Password
         </a>
     </li>
 
     <li class="p-t-4">
-        <a href="<?php echo base_url('masuk/logout') ?>" class="s-text13 active1">
+        <a href="<?php echo base_url('masuk/logout') ?>" onclick="return confirm('Yakin logout?');" class="s-text13 active1">
             <i class="fa fa-sign-out"></i> Logout
         </a>
     </li>

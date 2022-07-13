@@ -40,46 +40,49 @@
                                 <input type="hidden" name="id_berita" id="id_berita" class="form-control" value="<?php echo randomString(4); ?>" readonly required>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">
-                                <h6>Nama Berita</h6>
-                            </label>
-                            <div class="col-lg-6">
-                                <input type="text" class="form-control" name="nama_berita" placeholder="Nama berita" value="<?php echo set_value('nama_berita') ?>" required>
+                        <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">
+                                    <h6>Nama Berita</h6>
+                                </label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="nama_berita" placeholder="Nama berita" value="<?php echo set_value('nama_berita') ?>" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">
-                                <h6>Unggah Gambar Berita</h6>
-                            </label>
-                            <div class="col-lg-6">
-                                <input type="file" class="form-control" name="gambar_berita" value="<?php echo set_value('gambar_berita') ?>">
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">
+                                    <h6>Unggah Gambar Berita</h6>
+                                </label>
+                                <div class="col-lg-6">
+                                    <input type="file" accept="image/png, image/gif, image/jpeg" class="form-control" name="gambar_berita" value="<?php echo set_value('gambar_berita') ?> ">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">
-                                <h6>Status Berita</h6>
-                            </label>
-                            <div class="col-lg-6">
-                                <select name="status_berita" class="form-control">
-                                    <option value="Publish">Publikasikan</option>
-                                    <option value="Draft">Simpan Sebagai Draft</option>
-                                </select>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">
+                                    <h6>Status Berita</h6>
+                                </label>
+                                <div class="col-lg-6">
+                                    <select name="status_berita" class="form-control">
+                                        <option value="Publish">Publikasikan</option>
+                                        <option value="Draft">Simpan Sebagai Draft</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label class="col-lg-4 col-form-label"></label>
-                            <div class="col-lg-6">
-                                <button name="submit" type="submit" class="btn mb-1 btn-success"><i class="fa fa-save"></i> Simpan dan Unggah</button>
-                                <button name="reset" type="reset" class="btn mb-1 btn-info"><i class="fa fa-times"></i> Reset</button>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label"></label>
+                                <div class="col-lg-6">
+                                    <button name="submit" type="submit" class="btn mb-1 btn-success"><i class="fa fa-save"></i> Simpan dan Unggah</button>
+                                    <button name="reset" type="reset" class="btn mb-1 btn-info"><i class="fa fa-times"></i> Reset</button>
+                                </div>
                             </div>
-                        </div>
+                        <?php } ?>
 
                         <?php echo form_close(); ?>
+
+
 
                         <?php
                         //Notifikasi
@@ -138,9 +141,9 @@
                                                         </td>
                                                         <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
                                                             <td>
-                                                                <!-- <a href="<?php echo base_url() . 'admin/berita/edit/' . $berita->id_berita; ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a> -->
-
-                                                                <a href="<?php echo base_url() . 'admin/berita/delete/' . $berita->id_berita; ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></a>
+                                                                <a href="<?php echo base_url() . 'admin/berita/delete/' .  $berita->id_berita; ?>" class="btn btn-danger btn-xs">
+                                                                    <h4><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></h4>
+                                                                </a>
                                                             </td>
                                                         <?php } ?>
                                                     </tr>

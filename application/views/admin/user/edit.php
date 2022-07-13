@@ -28,12 +28,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Email</label>
                             <div class="col-lg-6">
                                 <input type="email" class="form-control" name="email" placeholder="Email Admin" value="<?php echo $user->email ?>" required>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Username</label>
@@ -52,17 +52,24 @@
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Password Baru</label>
                             <div class="col-lg-6">
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Password Baru" value="" required>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password baru" value="">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Ulangi Password Baru</label>
                             <div class="col-lg-6">
-                                <input type="password" class="form-control" name="password2" id="password" placeholder="Ulangi Password Baru" required>
+                                <input type="password" class="form-control" name="password2" id="password" placeholder="Ulangi Password">
                             </div>
                         </div>
+
                         <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">Level Hak Akses</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" name="akses_level" value="<?php echo $user->akses_level ?>" readonly>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Level Hak Akses</label>
                             <div class="col-lg-6">
                                 <select type="text" class="form-control" name="akses_level">
@@ -72,7 +79,7 @@
                                                                 } ?>>Super Admin</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <br>
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label"></label>

@@ -7,7 +7,7 @@ class Simple_login
 
     public function __construct()
     {
-        $this->CI =& get_instance();
+        $this->CI = &get_instance();
         //load data model user
         $this->CI->load->model('user_model');
     }
@@ -17,7 +17,7 @@ class Simple_login
     {
         $check = $this->CI->user_model->login($username,  $password);
         //Jika ada data user, maka create session login
-        if($check) {
+        if ($check) {
             $id_pengguna    = $check->id_pengguna;
             $nama_pengguna  = $check->nama_pengguna;
             $akses_level    = $check->akses_level;
@@ -28,7 +28,7 @@ class Simple_login
             $this->CI->session->set_userdata('akses_level', $akses_level);
             //redirect ke halaman admin yang diproteksi
             redirect(base_url('admin/dasbor'), 'refresh');
-        }else{
+        } else {
             //Kalau tidak ada atau password username salah, maka login lagi
             $this->CI->session->set_flashdata('warning', 'Username atau password salah');
             redirect(base_url('login'), 'refresh');
@@ -57,6 +57,4 @@ class Simple_login
         $this->CI->session->set_flashdata('sukses', 'Anda berhasil logout');
         redirect(base_url('login'), 'refresh');
     }
-
 }
-

@@ -4,9 +4,9 @@
 <div class="content-body">
     <div class="container-fluid mt-3">
 
-        <p>
+        <!-- <p>
             <a href="<?php echo base_url('admin/kategori/tambah') ?>" class="btn mb-1 btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
-        </p>
+        </p> -->
 
         <?php
         //Notifikasi
@@ -23,7 +23,12 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">KATEGORI PRODUK</h4>
+                        <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
+                            <a href="<?php echo base_url('admin/kategori/tambah') ?>" class="btn mb-1 btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
+                        <?php } ?>
+                        <center>
+                            <h4 class="card-title">KATEGORI PRODUK</h4>
+                        </center>
                         <!-- <h4 class="card-title">Data Table</h4> -->
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">

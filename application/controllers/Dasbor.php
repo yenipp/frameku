@@ -84,6 +84,23 @@ class Dasbor extends CI_Controller
             array('required' => '%s harus diisi')
         );
 
+        $valid->set_rules(
+            'password',
+            'Password',
+            'required',
+            array('required' => '%s harus diisi')
+        );
+
+        $valid->set_rules(
+            'password2',
+            'Password',
+            'required|matches[password]',
+            array(
+                'required' => '%s harus diisi',
+                'matches' => 'Password tidak sama!'
+            )
+        );
+
         // $valid->set_rules(
         //     'alamat',
         //     'Alamat',
@@ -131,7 +148,7 @@ class Dasbor extends CI_Controller
             }
             //End data update
             $this->pelanggan_model->edit($data);
-            $this->session->set_flashdata('sukses', 'Profil berhasil diperbarui');
+            $this->session->set_flashdata('sukses', 'Password berhasil diperbarui');
             redirect(base_url('dasbor/profil'), 'refresh');
         }
         //End masuk database

@@ -19,6 +19,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
+                    <h4 class="card-title">DATA GAMBAR</h4>
                     <div class="form-validation">
                         <div class="form-group row">
                             <?php
@@ -39,56 +40,58 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">
-                                <h6>ID Produk</h6>
-                            </label>
-                            <div class="col-lg-6">
-                                <input type="text" class="form-control" name="id_produk" value="<?php echo $produk->id_produk ?>" readonly>
+                        <?php if ($this->session->userdata('akses_level') !== "Super Admin") { ?>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">
+                                    <h6>ID Produk</h6>
+                                </label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="id_produk" value="<?php echo $produk->id_produk ?>" readonly>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
+                            <!-- <div class="form-group row">
                             <label class="col-lg-4 col-form-label">
                                 <h6>Nama Produk</h6>
                             </label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="nama_produk" value="<?php echo $produk->nama_produk ?>" readonly>
                             </div>
-                        </div>
+                            </div> -->
 
-                        <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">
-                                <h6>Judul Gambar</h6>
-                            </label>
-                            <div class="col-lg-6">
-                                <input type="text" class="form-control" name="judul_gambar" placeholder="Nama gambar" value="<?php echo set_value('judul_gambar') ?>" required>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">
+                                    <h6>Judul Gambar</h6>
+                                </label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="judul_gambar" placeholder="Nama gambar" value="<?php echo set_value('judul_gambar') ?>" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <div class="col-lg-4 col-form-label"></div>
-                            <div class="col-lg-6">
-                                <img src="<?= base_url('assets/upload/image/nofoto.png') ?>" id="gambar_load" width="150px" alt="">
+                            <div class="form-group row">
+                                <div class="col-lg-4 col-form-label"></div>
+                                <div class="col-lg-6">
+                                    <img src="<?= base_url('assets/upload/image/nofoto.png') ?>" id="gambar_load" width="150px" alt="">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">
-                                <h6>Unggah Gambar</h6>
-                            </label>
-                            <div class="col-lg-6">
-                                <input type="file" class="form-control" name="gambar" id="preview_gambar" placeholder="Gambar produk" value="<?php echo set_value('gambar') ?>" required>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">
+                                    <h6>Unggah Gambar</h6>
+                                </label>
+                                <div class="col-lg-6">
+                                    <input type="file" class="form-control" name="gambar" id="preview_gambar" placeholder="Gambar produk" accept="image/png, image/gif, image/jpeg" value="<?php echo set_value('gambar') ?>" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label class="col-lg-4 col-form-label"></label>
-                            <div class="col-lg-6">
-                                <button name="submit" type="submit" class="btn mb-1 btn-success"><i class="fa fa-save"></i> Simpan dan Unggah</button>
-                                <button name="reset" type="reset" class="btn mb-1 btn-info"><i class="fa fa-times"></i> Reset</button>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label"></label>
+                                <div class="col-lg-6">
+                                    <button name="submit" type="submit" class="btn mb-1 btn-success"><i class="fa fa-save"></i> Simpan dan Unggah</button>
+                                    <button name="reset" type="reset" class="btn mb-1 btn-info"><i class="fa fa-times"></i> Reset</button>
+                                </div>
                             </div>
-                        </div>
+                        <?php } ?>
 
                         <?php echo form_close(); ?>
 

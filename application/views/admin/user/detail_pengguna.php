@@ -1,44 +1,72 @@
 <div class="content-body">
     <div class="container-fluid mt-3">
+        <?php
+        //Notifikasi
+        if ($this->session->flashdata('sukses')) {
+            echo '<p class="alert alert-success">';
+            echo $this->session->flashdata('sukses');
+            echo '</div>';
+        }
+        ?>
+
+        <?php
+        //Error Upload
+        if (isset($error)) {
+            echo '<p class="alert alert-warning">';
+            echo $error;
+            echo '</p>';
+        }
+
+        //Notifikasi error
+        echo validation_errors('<div class="alert alert-warning">', '</div>');
+
+        //Form open
+        echo form_open_multipart(base_url('admin/user/detail_pengguna/'), 'class="form-validation"');
+        ?>
+
         <div class="col-lg-12">
 
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">PROFIL SAYA</h4>
+                    <h4 class="card-title">UBAH PASSWORD</h4>
                     <br>
                     <div class="form-validation">
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label class="col-lg-4 col-form-label">ID Admin</label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="id_pengguna" placeholder="ID Pengguna" value="<?php echo $user->id_pengguna ?>" readonly>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Akses Level</label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="akses_level" placeholder="Akses Level" value="<?php echo $user->akses_level ?>" readonly>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Nama Lengkap</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Nama Lengkap</h6>
+                            </label>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" name="nama_pengguna" placeholder="Nama Pengguna" value="<?php echo $user->nama_pengguna ?>" required>
+                                <input type="text" class="form-control" name="nama_pengguna" placeholder="Nama Pengguna" value="<?php echo $user->nama_pengguna ?>" readonly>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Email</label>
                             <div class="col-lg-6">
                                 <input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo $user->email ?>" required>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Username</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Username</h6>
+                            </label>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $user->username ?>" required>
+                                <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $user->username ?>" readonly>
                             </div>
                         </div>
 
@@ -50,23 +78,29 @@
                         </div> -->
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Password Lama</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Password Lama</h6>
+                            </label>
                             <div class="col-lg-6">
                                 <input type="password" class="form-control" placeholder="Password Lama" value="<?php echo $user->password ?>" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Password Baru</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Password Baru</h6>
+                            </label>
                             <div class="col-lg-6">
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Password Baru" value="" required>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Ketikkan pasasword baru" value="" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Ulangi Password Baru</label>
+                            <label class="col-lg-4 col-form-label">
+                                <h6>Password Baru</h6>
+                            </label>
                             <div class="col-lg-6">
-                                <input type="password" class="form-control" name="password2" id="password" placeholder="Ulangi Password Baru" required>
+                                <input type="password" class="form-control" name="password2" id="password" placeholder="Ulangi Password" required>
                             </div>
                         </div>
 

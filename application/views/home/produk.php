@@ -16,15 +16,11 @@
                     <?php foreach ($produk as $key => $produk) { ?>
                         <div class="item-slick2 p-l-50 p-r-15">
                             <div class="block2">
+                                <br>
                                 <div class="block2-img wrap-pic-w of-hidden pos-relative">
                                     <img src="<?php echo base_url('assets/upload/frame/' . $produk->gambar_produk); ?>" alt="<?php echo $produk->nama_produk ?>" height="200">
 
                                     <div class="block2-overlay trans-0-4">
-                                        <!-- <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                        </a> -->
-
                                         <div class="block2-txt p-t-150">
                                             <a href="<?php echo base_url('produk/detail/' . $produk->slug_produk) ?>" class="flex-c-m size1 s-text1 trans-0-4">
                                                 <b>Detail produk</b>
@@ -47,6 +43,7 @@
                                     <div class="d-none">
                                         <input type="text" name="id_produk" value="<?= $produk->id_produk ?>">
                                         <input type="text" name="nama_produk" value="<?= $produk->nama_produk ?>">
+                                        <input type="text" name="gambar_produk" value="<?= $produk->gambar_produk ?>">
                                         <input type="text" name="harga_produk" value="<?= $produk->harga_produk ?>">
                                     </div>
                                     <div id="tempel-btn-<?= $key ?>">
@@ -57,6 +54,7 @@
                                                 'id_pelanggan'  => $this->session->userdata('id_pelanggan'),
                                                 'id_produk'     => $produk->id_produk,
                                                 'nama_produk'   => $produk->nama_produk,
+                                                'gambar_produk' => $produk->gambar_produk,
                                                 'harga_produk'  => $produk->harga_produk,
                                             ];
                                             $hasil = $this->db->get_where('tb_wishlist', $data);

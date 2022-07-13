@@ -181,7 +181,6 @@ class Produk_model extends CI_Model
         return $query->result();
     }
 
-
     //Detail produk
     public function detail($id_produk)
     {
@@ -213,6 +212,17 @@ class Produk_model extends CI_Model
         $this->db->order_by('tanggal_post', 'asc');
         $query = $this->db->get();
         return $query->result();
+    }
+
+    //  Listing all produk
+    public function coba_camera()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_produk');
+        $this->db->where('status_produk', 'Publish');
+        $this->db->order_by('id_produk', 'desc');
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
     // Tambah

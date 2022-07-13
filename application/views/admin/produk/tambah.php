@@ -98,7 +98,7 @@
                                 <h5>Keterangan</h5>
                             </label>
                             <div class="col-lg-6">
-                                <textarea type="text" class="form-control" name="keterangan" placeholder="keterangan, berat, warna" value="<?php echo set_value('keterangan') ?>" rows="10" required></textarea>
+                                <textarea type="text" class="form-control" name="keterangan" placeholder="keterangan, berat, warna" id="editor" value="<?php echo set_value('keterangan') ?>" rows="10" required></textarea>
                             </div>
                         </div>
 
@@ -114,7 +114,7 @@
                                 <h5>Upload Gambar Kacamata</h5>
                             </label>
                             <div class="col-lg-6">
-                                <input type="file" class="form-control" name="gambar_produk" id="preview_gambar" value="<?php echo set_value('gambar_produk') ?>" required>
+                                <input type="file" class="form-control" name="gambar_produk" id="preview_gambar" accept="image/png, image/gif, image/jpeg" value="<?php echo set_value('gambar_produk') ?>" required>
                             </div>
                         </div>
 

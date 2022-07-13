@@ -13,7 +13,7 @@
             <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
 
 
-                <div class="alert alert-success">
+                <div class="alert alert-info">
                     <h4>Selamat datang <i><strong><?php echo $this->session->userdata('nama_pelanggan'); ?></strong></i></h4>
                 </div>
 
@@ -23,7 +23,7 @@
 
                     <table class="table table-bordered" width="100%">
                         <thead class="thead-light">
-                            <tr class="bg-success">
+                            <tr class="bg-info">
                                 <th>No</th>
                                 <th>ID pelanggan</th>
                                 <th>ID produk</th>
@@ -63,7 +63,7 @@
                     //Kalau tidak ada tampilkan notifikasi
                 } else { ?>
 
-                    <p class="alert alert-success">
+                    <p class="alert alert-info">
                         <i class="fa fa-warning"></i> belum ada data transaksi
                     </p>
 

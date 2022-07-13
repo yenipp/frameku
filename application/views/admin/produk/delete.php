@@ -13,13 +13,13 @@
 			</div>
 			<div class="modal-body">
 				<div class="callout callout-warning">
-					<h4>Peringatan!</h4>
-					Yakin ingin menghapus data ini? Data yang sudah dihapus tidak dapat dikembalikan.
+					<h4>Yakin ingin menghapus?</h4>
+
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<a href="<?php echo base_url() . 'admin/produk/delete/' . $produk->id_produk; ?>" class="btn btn-danger"><i class="fa-fa-trash-o"></i> Ya, Hapus data ini</a>
+				<button type="button" class="btn btn-info" data-dismiss="modal">Tutup</button>
+				<a href="<?php echo base_url() . 'admin/produk/delete/' . $produk->id_produk; ?>" class="btn btn-danger"><i class="fa-fa-trash"></i> Hapus</a>
 			</div>
 		</div>
 	</div>

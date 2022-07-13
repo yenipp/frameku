@@ -32,6 +32,7 @@ class Masuk extends CI_Controller
         );
 
         if ($this->form_validation->run()) {
+            // $id_pelanggan = 'id_pelanggan';
             $email    = $this->input->post('email');
             $password = $this->input->post('password');
             // proses ke simple pelanggan

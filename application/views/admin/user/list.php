@@ -4,9 +4,9 @@
 <div class="content-body">
     <div class="container-fluid mt-3">
 
-        <p>
+        <!-- <p>
             <a href="<?php echo base_url('admin/user/tambah') ?>" class="btn mb-1 btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
-        </p>
+        </p> -->
 
         <?php
         //Notifikasi
@@ -23,7 +23,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">DATA USER</h4>
+                        <a href="<?php echo base_url('admin/user/tambah') ?>" class="btn mb-1 btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
+                        <center>
+                            <h4 class="card-title">DATA ADMIN</h4>
+                        </center>
                         <!-- <h4 class="card-title">Data Table</h4> -->
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
@@ -39,16 +42,15 @@
                                             <h6><b>Nama</b></h6>
                                         </th>
                                         <th>
-                                            <h6><b>Email</b></h6>
-                                        </th>
-                                        <th>
                                             <h6><b>Username</b></h6>
                                         </th>
                                         <th>
                                             <h6><b>Akses Level</b></h6>
                                         </th>
                                         <?php if ($this->session->userdata('akses_level') !== "Admin") { ?>
-                                            <th>Aksi</th>
+                                            <th>
+                                                <h6><b>Aksi</b></h6>
+                                            </th>
                                         <?php } ?>
                                     </tr>
                                 </thead>
@@ -66,9 +68,6 @@
                                                 <h6><?php echo $user->nama_pengguna ?></h6>
                                             </td>
                                             <td>
-                                                <h6><?php echo $user->email ?></h6>
-                                            </td>
-                                            <td>
                                                 <h6><?php echo $user->username ?></h6>
                                             </td>
                                             <td>
@@ -82,9 +81,10 @@
                                                     <a href="<?php echo base_url() . 'admin/user/edit/' . $user->id_pengguna; ?>" class="btn btn-warning btn-xs">
                                                         <h4><i class="fa fa-edit"></i></h4>
                                                     </a>
-                                                    <a href="<?php echo base_url() . 'admin/user/delete/' . $user->id_pengguna; ?>" class="btn btn-danger btn-xs">
+                                                    <?php include('delete_user.php') ?>
+                                                    <!-- <a href="<?php echo base_url() . 'admin/user/delete/' . $user->id_pengguna; ?>" class="btn btn-danger btn-xs">
                                                         <h4><i class="fa fa-trash-o"></i onclick="return confirm('Yakin ingin menghapus data ini?')"></h4>
-                                                    </a>
+                                                    </a> -->
                                                 </td>
                                             <?php } ?>
                                         </tr>

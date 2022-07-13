@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <!-- <title>Capture webcam image with php and jquery - ItSolutionStuff.com</title> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
@@ -19,7 +18,6 @@
 <body>
 
     <div class="container mt-5">
-        <!-- <h1 class="text-center">Capture webcam image with php and jquery - ItSolutionStuff.com</h1> -->
 
         <form method="POST" action="storeImage.php">
             <div class="row">
@@ -30,13 +28,15 @@
 
                     <!-- <img src="<?php echo base_url('assets/upload/watermark3.png') ?>" alt="" style="margin-top: -470px; margin-left:170px; width: 180px; height: auto;"> -->
                     <div class="d-flex justify-content-between">
-                        <input type=button class="btn btn-success" value="Take Snapshot" onClick="take_snapshot()">
+
+                        <input type=button class="btn btn-info" value="Take Gambar" onClick="take_snapshot()">
                         <select name="" id="frame" class="form-select w-25" onchange="myFunction()">
                             <option value="">Pilih Frame Kacamata</option>
                             <?php foreach ($daftar_frame as $df) { ?>
                                 <option value="<?= $df['gambar_frame'] ?>"><?= $df['nama_produk'] ?></option>
                             <?php } ?>
                         </select>
+
                     </div>
                     <input type="hidden" name="image" class="image-tag">
                 </div>

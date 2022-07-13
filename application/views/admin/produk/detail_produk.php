@@ -35,7 +35,19 @@
                             <div class="form-group row">
                                 <label class="col-lg-4 col-form-label">
                                     <th>
-                                        <h5>Gambar <?php echo $produk->nama_produk ?></h5>
+                                        <h5>Nama Produk</h5>
+                                    </th>
+                                </label>
+                                <div class="col-lg-7">
+                                    <td>
+                                        <h5><?php echo $produk->nama_produk ?></h5>
+                                    </td>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">
+                                    <th>
+                                        <h5>Gambar</h5>
                                     </th>
                                 </label>
                                 <div class="col-lg-8">
@@ -55,6 +67,19 @@
                                 <div class="col-lg-7">
                                     <td>
                                         <h6><?php echo $produk->keterangan ?></h6>
+                                    </td>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label">
+                                    <th>
+                                        <h5>Harga Produk</h5>
+                                    </th>
+                                </label>
+                                <div class="col-lg-7">
+                                    <td>
+                                        <h5><?php echo number_format($produk->harga_produk, '0', ',', '.') ?></h5>
                                     </td>
                                 </div>
                             </div>

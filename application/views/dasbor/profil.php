@@ -11,8 +11,8 @@
             </div>
 
             <div class="col-sm-6 col-md-9 col-lg-9 p-b-50">
-
-                <h1><?php echo $title ?></h1>
+                <h4><?php echo $title ?></h4>
+                <br>
 
                 <?php
                 //Notifikasi
@@ -31,20 +31,27 @@
 
                 <table class="table table-light">
                     <thead class="thead-light">
-                        <tr>
-                            <th width="25%">Nama</th>
-                            <th><input type="text" name="nama_pelanggan" class="form-control" placeholder="Nama lengkap" value="<?php echo $pelanggan->nama_pelanggan ?>" required></th>
-                        </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td>Nama</td>
+                            <th><input type="text" name="nama_pelanggan" class="form-control" placeholder="Nama lengkap" value="<?php echo $pelanggan->nama_pelanggan ?>" required></th>
+                        </tr>
                         <tr>
                             <td>Email</td>
                             <th><input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $pelanggan->email ?>" readonly></th>
                         </tr>
                         <tr>
-                            <td>Password</td>
-                            <th><input type="password" name="password" class="form-control" placeholder="Password" value="<?php echo set_value('password') ?>">
-                                <span class="text-danger">Ketik minimal 6 karakter untuk mengganti password baru atau biarkan kosong</span>
+                            <td>Password Baru</td>
+                            <th><input type="password" name="password" class="form-control" placeholder="Ketikkan Password baru" value="<?php echo set_value('password') ?>">
+                                <!-- <span class="text-danger">Ketik minimal 6 karakter untuk mengganti password baru atau biarkan kosong</span> -->
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <td>Ulangi Password Baru</td>
+                            <th><input type="password" name="password2" class="form-control" placeholder="Ulangi Password" value="<?php echo set_value('password') ?>">
+                                <!-- <span class="text-danger">Ketik minimal 6 karakter untuk mengganti password baru atau biarkan kosong</span> -->
                             </th>
                         </tr>
                         <!-- <tr>
@@ -58,12 +65,12 @@
                         </tr> -->
                         <td></td>
                         <td>
-                            <button class="btn btn-success btn-sm" type="submit">
+                            <button class="btn btn-info btn-sm" type="submit">
                                 <i class="fa fa-save"></i> Update Profil
                             </button>
-                            <button class="btn btn-default btn-sm" type="reset">
+                            <!-- <button class="btn btn-default btn-sm" type="reset">
                                 <i class="fa fa-times"></i> Reset
-                            </button>
+                            </button> -->
                         </td>
                     </tbody>
                 </table>
